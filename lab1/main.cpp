@@ -3,60 +3,9 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include "data.h"
 
 using namespace std;
-
-class Data 
-{
-    public:
-    //Getters and Setters
-    string getID() 
-    {
-        return ID;
-    }
-    void setID(string ID) 
-    {
-        this->ID = ID;
-    }
-    string getName() 
-    {
-        return name;
-    }
-    void setName(string name) 
-    {
-        this->name = name;
-    }
-    string getQuantity() 
-    {
-        return quantity;
-    }
-    void setQuantity(string quantity) 
-    {
-        this->quantity = quantity;
-    }
-    string getPrice() 
-    {
-        return price;
-    }
-    void setPrice(string price) 
-    {
-        this->price = price;
-    }
-
-    Data (string ID, string name, string quantity, string price) 
-    {
-      this-> ID = ID;
-      this-> name = name;
-      this-> quantity = quantity;
-      this-> price = price;  
-    }
-
-    private:
-    string ID;
-    string name;
-    string quantity;
-    string price;
-};
 
 int  main() 
 {
@@ -83,8 +32,6 @@ int  main()
     }
 
     inFile.close();
-
-    cout << "Hi Noah" << endl;
     
 }
 
