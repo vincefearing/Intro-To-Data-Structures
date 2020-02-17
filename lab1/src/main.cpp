@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "data.h"
+#include "../include/data.h"
 
 using namespace std;
 
@@ -16,9 +16,8 @@ int  main()
     string name;
     string quantity;
     string price;
-    int i = 0;
 
-    inFile.open("/Volumes/Vindrive/College/Spring 2020/Intro To Data Structures/labs/lab1/data.txt");
+    inFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/data.txt");
     if (!inFile) {
         cout << "Problem opening file" << endl;
     }
@@ -34,5 +33,3 @@ int  main()
     inFile.close();
     
 }
-
-//did not reach the end of file && did not reach end of array

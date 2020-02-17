@@ -70,6 +70,10 @@ Temporary Items
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/.easycpp
+bin
+lib
+Makefile
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
