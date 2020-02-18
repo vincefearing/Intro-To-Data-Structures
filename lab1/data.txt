@@ -11,3 +11,6 @@
 348109835 pokemonBlue 12 55.00
 348212387 PokemonYellow 11 59.95
 824987452 2.1Soundbar 15 259.99
+374329087 bluetoothkeyboard 2 40.55
+609818973 wirelessMOUSE 284 60.30
+124809737 oneToManyItems 341 500.00
