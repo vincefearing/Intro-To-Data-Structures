@@ -4,6 +4,7 @@
 #include <fstream>
 #include <vector>
 #include "../include/data.h"
+#include "../include/functions.h"
 
 using namespace std;
 
