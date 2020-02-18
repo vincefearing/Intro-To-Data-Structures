@@ -28,9 +28,10 @@ int  main()
         inFile >> ID >> name >> quantity >> price;
         Data fill(ID, name, quantity, price);
         list.push_back(fill);
-        cout << fill.getID() << endl;
     }
 
     inFile.close();
+
+    print(list);
     
 }
