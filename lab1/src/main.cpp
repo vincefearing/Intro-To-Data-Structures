@@ -57,12 +57,13 @@ int  main()
         cout << "4. Exit" << endl << endl;
         cin >> userChoice;
 
-        if(!cin)
+        //error checking menu choice
+        if(!cin) // !!SHOULD BE A FUNCTION!!
         {
             cin.clear();
             cin.ignore();
 
-            cout << "Incorrect input. Please choose a single digit corresponding your desired menu item" << endl;
+            cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
         }
 
         switch(userChoice)
@@ -87,13 +88,19 @@ int  main()
                         break;
                     case 3 : //sort(userChoice);
                         break;
-                    case 4 : //sprt(userChoice);
+                    case 4 : //sort(userChoice);
                         break;
                     case 5 : quit = true;
                         break;
-                }
+                }    
             }
-            
+                break;
+            case 3 : //searchInventory(item, list);
+                break;
+            case 4 : quit = true;
+                break;    
         }
+        quit = false;
     }
+    return 0;
 }
