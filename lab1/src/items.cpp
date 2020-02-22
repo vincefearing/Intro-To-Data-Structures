@@ -29,16 +29,16 @@ void Items::setQuantity(string quantity)
 {
     this->quantity = quantity;
 }
-string Items::getPrice()
+double Items::getPrice()
 {
     return price;
 }
-void Items::setPrice(string price) 
+void Items::setPrice(double price) 
 {
     this->price = price;
 }
 
-Items::Items (string ID, string name, string quantity, string price) 
+Items::Items (string ID, string name, string quantity, double price) 
 {
     this-> ID = ID;
     this-> name = name;

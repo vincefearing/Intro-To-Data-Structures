@@ -8,7 +8,7 @@ class Items {
     string ID;
     string name;
     string quantity;
-    string price;
+    double price;
     
     public:
     //Getters and Setters
@@ -18,9 +18,9 @@ class Items {
     void setName(string name);
     string getQuantity();
     void setQuantity(string quantity);
-    string getPrice();
-    void setPrice(string price);
+    double getPrice();
+    void setPrice(double price);
 
     //constructor
-    Items(string ID, string name, string quantity, string price);
+    Items(string ID, string name, string quantity, double price);
 };

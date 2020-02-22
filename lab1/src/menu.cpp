@@ -6,6 +6,15 @@
 
 using namespace std;
 
+void Menu::validateFile(int userChoice) {
+    if(!cin || (userChoice > 5 || userChoice < 1))
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
+    }
+}
+
 void Menu::mainMenu(Inventory inventory) {
     int userChoice = 0;
     bool quit = false;
@@ -23,16 +32,11 @@ void Menu::mainMenu(Inventory inventory) {
         cin >> userChoice;
 
         //error checking menu choice
-        if(!cin && userChoice > 5 || userChoice < 0)
-        {
-            cin.clear();
-            cin.ignore();
-            cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
-        }
+        validateFile(userChoice);
 
         switch(userChoice)
         {
-            case 1 : inventory.printInventory();
+            case 1 : inventory.printItems();
                 break;
             case 2 : while(quit == false)
             {
@@ -45,13 +49,7 @@ void Menu::mainMenu(Inventory inventory) {
                 cin >> userChoice;
 
                 //error checking menu choice
-
-                if(!cin && userChoice > 5 || userChoice < 0)
-                {
-                    cin.clear();
-                    cin.ignore();
-                    cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
-                }
+                validateFile(userChoice);
 
                 switch(userChoice)
                 {

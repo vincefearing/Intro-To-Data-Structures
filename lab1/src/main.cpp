@@ -13,7 +13,7 @@ using namespace std;
 int  main() 
 {
     Inventory inventory;
-    inventory.printInventory();
+    inventory.importData();
     Menu menu;
 
     menu.mainMenu(inventory);

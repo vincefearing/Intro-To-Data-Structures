@@ -13,7 +13,7 @@ void Inventory::importData()
     string ID;
     string name;
     string quantity;
-    string price;
+    double price;
     
     inFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/data.txt");
     if (!inFile) 
@@ -37,9 +37,15 @@ void Inventory::importData()
         cout << endl;
         cout << "WARNING: File was too large only the first 15 items were imported" << endl;
     }
+
+    //pointing to item list
+    for (int i = 0; i < list.size(); ++i)
+    {
+        listPtrs.push_back(&list.at(i));
+    }
 }
 
-void Inventory::printInventory()
+void Inventory::printItems()
 {
     for (int i = 0; i < list.size(); ++i) 
     {
@@ -49,3 +55,14 @@ void Inventory::printInventory()
         cout << "Price: $" << list.at(i).getPrice() << endl << endl;
     }
 }
+
+void Inventory::sortItems(int userChoice) 
+{
+    for(int i = 0; i < list.size(); ++i)
+    {
+        switch(userChoice)
+        {
+            case 1 : 
+        }
+    }
+};
