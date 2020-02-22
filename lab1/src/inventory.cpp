@@ -49,20 +49,53 @@ void Inventory::printItems()
 {
     for (int i = 0; i < list.size(); ++i) 
     {
-        cout << "ID: " << list.at(i).getID() << endl;
-        cout << "Item Name: " << list.at(i).getName() << endl;
-        cout << "Quantity: " << list.at(i).getQuantity() << endl;
-        cout << "Price: $" << list.at(i).getPrice() << endl << endl;
+        cout << "ID: " << listPtrs[i]->getID() << endl;
+        cout << "Item Name: " << listPtrs[i]->getName() << endl;
+        cout << "Quantity: " << listPtrs[i]->getQuantity() << endl;
+        cout << "Price: $" << listPtrs[i]->getPrice() << endl << endl;
     }
 }
 
 void Inventory::sortItems(int userChoice) 
 {
-    for(int i = 0; i < list.size(); ++i)
+    bool sorted = false;
+    bool swap = false;
+    while (!sorted) 
     {
-        switch(userChoice)
+        sorted = true;
+        for(int i = 0; i < list.size()-1; ++i)
         {
-            case 1 : 
+            swap = false;
+            switch(userChoice)
+            {
+                case 1 : if(listPtrs[i]->getID() > listPtrs[i+1]->getID())
+                {
+                    swap = true;
+                } 
+                    break;
+                case 2 : if(listPtrs[i]->getName() > listPtrs[i+1]->getName())
+                {
+                    swap = true;
+                }
+                    break;
+                case 3 : if(listPtrs[i]->getQuantity() > listPtrs[i+1]->getQuantity())
+                {
+                    swap = true;
+                }
+                    break;
+                case 4 : if(listPtrs[i]->getPrice() > listPtrs[i+1]->getPrice())
+                {
+                    swap = true;
+                }
+                    break;
+            }
+            if(swap)
+            {
+                Items *swap = listPtrs[i+1];
+                    listPtrs[i+1] = listPtrs[i];
+                    listPtrs[i] = swap;
+                    sorted = false;
+            }
         }
     }
 };

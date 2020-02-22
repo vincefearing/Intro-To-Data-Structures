@@ -15,7 +15,7 @@ void Menu::validateFile(int userChoice) {
     }
 }
 
-void Menu::mainMenu(Inventory inventory) {
+void Menu::mainMenu(Inventory &inventory) {
     int userChoice = 0;
     bool quit = false;
 
@@ -53,13 +53,13 @@ void Menu::mainMenu(Inventory inventory) {
 
                 switch(userChoice)
                 {
-                    case 1 : //sort(userChoice);
+                    case 1 : inventory.sortItems(userChoice);
                         break;
-                    case 2 : //sort(userChoice);
+                    case 2 : inventory.sortItems(userChoice);
                         break;
-                    case 3 : //sort(userChoice);
+                    case 3 : inventory.sortItems(userChoice);
                         break;
-                    case 4 : //sort(userChoice);
+                    case 4 : inventory.sortItems(userChoice);
                         break;
                     case 5 : quit = true;
                         break;
