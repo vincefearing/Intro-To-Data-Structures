@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Data 
+class Inventory 
 {
     private:
     string ID;
@@ -23,5 +23,5 @@ class Data
     void setPrice(string price);
 
     //constructor
-    Data (string ID, string name, string quantity, string price);
+    Inventory(string ID, string name, string quantity, string price);
 };

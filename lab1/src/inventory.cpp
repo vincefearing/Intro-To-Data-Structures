@@ -1,44 +1,44 @@
 #include <iostream>
 #include <string>
-#include "../include/data.h"
+#include "../include/inventory.h"
 
 using namespace std;
 
 //Getters and Setters
-string Data::getID() 
+string Inventory::getID() 
 {
     return ID;
 }
-void Data::setID(string ID) 
+void Inventory::setID(string ID) 
 {
     this->ID = ID;
 }
-string Data::getName()
+string Inventory::getName()
 {
     return name;
 }
-void Data::setName(string name) 
+void Inventory::setName(string name) 
 {
     this->name = name;
 }
-string Data::getQuantity()
+string Inventory::getQuantity()
 {
     return quantity;
 }
-void Data::setQuantity(string quantity) 
+void Inventory::setQuantity(string quantity) 
 {
     this->quantity = quantity;
 }
-string Data::getPrice()
+string Inventory::getPrice()
 {
     return price;
 }
-void Data::setPrice(string price) 
+void Inventory::setPrice(string price) 
 {
     this->price = price;
 }
 
-Data::Data (string ID, string name, string quantity, string price) 
+Inventory::Inventory (string ID, string name, string quantity, string price) 
 {
     this-> ID = ID;
     this-> name = name;

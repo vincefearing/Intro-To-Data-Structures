@@ -3,14 +3,14 @@
 #include <string>
 #include <fstream>
 #include <vector>
-#include "../include/data.h"
+#include "../include/inventory.h"
 #include "../include/functions.h"
 
 using namespace std;
 
 int  main() 
 {
-    vector <Data> list;
+    vector <Inventory> list;
     ifstream inFile;
     string trash;
     string ID;
@@ -32,7 +32,7 @@ int  main()
     while(!inFile.eof() && list.size() < 15) 
     {
         inFile >> ID >> name >> quantity >> price;
-        Data fill(ID, name, quantity, price);
+        Inventory fill(ID, name, quantity, price);
         list.push_back(fill);
     }
 
@@ -47,7 +47,7 @@ int  main()
     }
 
     //Menu that allows user to search for specific item or print sorted/unsorted list of all items
-    while(quit != true) 
+    while(quit == false) 
     {
         cout << endl;
         cout << "Welcome! Please choose a number from the options below." << endl << endl;
@@ -58,11 +58,10 @@ int  main()
         cin >> userChoice;
 
         //error checking menu choice
-        if(!cin) // !!SHOULD BE A FUNCTION!!
+        if(!cin && userChoice < 5) // !!SHOULD BE A FUNCTION!!
         {
             cin.clear();
             cin.ignore();
-
             cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
         }
 
@@ -70,7 +69,7 @@ int  main()
         {
             case 1 : printReport(list);
                 break;
-            case 2 : while(quit != true)
+            case 2 : while(quit == false)
             {
                 cout << "Sort by: " << endl;
                 cout << "1. ID" << endl;
@@ -94,13 +93,15 @@ int  main()
                         break;
                 }    
             }
+            quit = false; //resetting main menu condition after exiting sub menu
                 break;
             case 3 : //searchInventory(item, list);
                 break;
             case 4 : quit = true;
-                break;    
+                break; 
         }
-        quit = false;
     }
+
+    cout << "The program exited the menu loop" << endl;
     return 0;
 }

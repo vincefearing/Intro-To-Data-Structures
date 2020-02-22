@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "data.h"
+#include "inventory.h"
 
 using namespace std;
 
