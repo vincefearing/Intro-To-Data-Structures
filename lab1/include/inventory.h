@@ -1,27 +1,16 @@
 #pragma once
 #include <string>
+#include "items.h"
 
 using namespace std;
 
 class Inventory 
 {
     private:
-    string ID;
-    string name;
-    string quantity;
-    string price;
-    
-    public:
-    //Getters and Setters
-    string getID();
-    void setID(string ID);
-    string getName();
-    void setName(string name);
-    string getQuantity();
-    void setQuantity(string quantity);
-    string getPrice();
-    void setPrice(string price);
+    vector <Items> list;
 
-    //constructor
-    Inventory(string ID, string name, string quantity, string price);
+    public:
+    void importData();
+    void printInventory();
+    //void sortInventory();
 };

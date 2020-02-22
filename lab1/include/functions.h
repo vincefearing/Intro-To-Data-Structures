@@ -4,4 +4,4 @@
 
 using namespace std;
 
-void printReport(vector <Data> list);
+void printReport(vector <Inventory> list);
