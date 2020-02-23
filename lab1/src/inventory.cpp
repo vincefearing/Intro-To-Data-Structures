@@ -41,6 +41,7 @@ void Inventory::importData()
     }
 }
 
+//prints sorted list of pointers
 void Inventory::printItems()
 {
     for (int i = 0; i < list.size(); ++i) 
@@ -52,6 +53,7 @@ void Inventory::printItems()
     }
 }
 
+//Search items by name, ID, stock, and price
 void Inventory::sortItems(int userChoice) 
 {
     bool sorted = false;
@@ -96,7 +98,24 @@ void Inventory::sortItems(int userChoice)
     }
 };
 
-void Inventory::searchItems(int userChoice)
+//Function letting user search by ID or Name
+void Inventory::searchItems(string searchFor)
 {
-    cout << "This search is working" << endl;
+    bool itemFound = false;
+    for(int i = 0; i < list.size() && !itemFound; ++i)
+    {
+        if(searchFor == list[i].getName() || searchFor == list[i].getID())
+        {
+            cout << "\nItem: " << list[i].getName() <<
+            " ID: " << list[i].getID() <<
+            " Stock: " << list[i].getQuantity() <<
+            " Price: $" << list[i].getPrice() << endl;
+            itemFound = true;
+            cout<<"check1"<<endl;
+        }
+    }
+    cout <<"check"<<endl;
+    if(!itemFound) {
+        cout << "\nSorry item not found!" << endl;
+    }
 }

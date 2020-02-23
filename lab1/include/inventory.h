@@ -15,5 +15,5 @@ class Inventory
     void importData();
     void printItems();
     void sortItems(int userChoice);
-    void searchItems(int userChoice);
+    void searchItems(string searchFor);
 };
