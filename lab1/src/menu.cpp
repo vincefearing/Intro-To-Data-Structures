@@ -10,7 +10,7 @@ void Menu::validateInput(int userChoice, int menuLength) {
     if(!cin || (userChoice > menuLength || userChoice < 1))
     {
         cin.clear();
-        cin.ignore();
+        cin.ignore(100, '\n');
         cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
     }
 }
@@ -18,7 +18,6 @@ void Menu::validateInput(int userChoice, int menuLength) {
 void Menu::mainMenu(Inventory &inventory) {
     int userChoice = 0;
     bool quit = false;
-    string searchFor;
 
     //Menu that allows user to search for specific item or print sorted/unsorted list of all items
     while(!quit) 
@@ -36,9 +35,9 @@ void Menu::mainMenu(Inventory &inventory) {
 
         switch(userChoice)
         {
-            case 1 : inventory.printItems();
+            case 1 : inventory.printUnsorted(); //Print unsorted
                 break;
-            case 2 : while(!quit)
+            case 2 : while(!quit) //Sort options
             {
             cout << "\n Sort by: \n" <<
             "1. ID \n" <<
@@ -48,7 +47,7 @@ void Menu::mainMenu(Inventory &inventory) {
             "5. Main Menu \n" << endl;
             cin >> userChoice;
 
-            //error checking menu choice
+            //Error checking menu choice
             validateInput(userChoice, 5);
             inventory.sortItems(userChoice);
             inventory.printItems();
@@ -57,27 +56,26 @@ void Menu::mainMenu(Inventory &inventory) {
                 quit = true;
             }
             }
-            quit = false; //resetting main menu condition after exiting sub menu
+            quit = false; //Resetting main menu condition after exiting sub menu
                 break;
-            case 3 : while (!quit)
+            case 3 : while (!quit) //Search option
             {
-                cout << "\nWhat would you like to search for? \n" << endl;
-                cin >> searchFor;
-                inventory.searchItems(searchFor);
-                cout << "\n1. Search again \n" <<
-                "2. Main menu" << endl;
+                cout << "\n1. Search \n" <<
+                "2. Main menu\n" << endl;
                 cin >> userChoice;
-                if(userChoice == 2) {
-                    quit = true;
+                validateInput(userChoice, 2);
+                switch(userChoice)
+                {
+                    case 1 : inventory.searchItems();
+                        break;
+                    case 2 : quit = true;
                 }
             }
             quit = false;
                 break;
-            case 4 : //printReport
+            case 4 : inventory.printReport();
                 break; 
             case 5 : quit = true;
         }
     }
-
-    cout << "The program exited the menu loop" << endl;
 };

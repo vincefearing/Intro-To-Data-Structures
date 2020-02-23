@@ -12,8 +12,10 @@ class Inventory
     vector <Items*> listPtrs;
 
     public:
+    void printUnsorted();
     void importData();
     void printItems();
     void sortItems(int userChoice);
-    void searchItems(string searchFor);
+    void searchItems();
+    void printReport();
 };

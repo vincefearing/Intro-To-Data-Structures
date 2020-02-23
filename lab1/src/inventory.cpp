@@ -39,7 +39,19 @@ void Inventory::importData()
     {
         listPtrs.push_back(&list.at(i));
     }
-}
+};
+
+//Print raw data
+void Inventory::printUnsorted() 
+{
+    for(int i = 0; i < list.size(); ++i)
+    {
+        cout << "\nID: " << list[i].getID() << 
+        "\nName: " << list[i].getName() <<
+        "\nQuantity: " << list[i].getQuantity() <<
+        "\nPrice: $" << list[i].getPrice() << endl;
+    }
+};
 
 //prints sorted list of pointers
 void Inventory::printItems()
@@ -51,9 +63,9 @@ void Inventory::printItems()
         cout << "Quantity: " << listPtrs[i]->getQuantity() << endl;
         cout << "Price: $" << listPtrs[i]->getPrice() << endl << endl;
     }
-}
+};
 
-//Search items by name, ID, stock, and price
+//Sort items by name, ID, stock, and price
 void Inventory::sortItems(int userChoice) 
 {
     bool sorted = false;
@@ -99,23 +111,42 @@ void Inventory::sortItems(int userChoice)
 };
 
 //Function letting user search by ID or Name
-void Inventory::searchItems(string searchFor)
+void Inventory::searchItems()
 {
+    string searchFor;
+    cout << "Search: ";
+    cin >> searchFor;
+    transform(searchFor.begin(), searchFor.end(), searchFor.begin(), ::tolower);
+    cout << "\n";
     bool itemFound = false;
     for(int i = 0; i < list.size() && !itemFound; ++i)
     {
         if(searchFor == list[i].getName() || searchFor == list[i].getID())
         {
             cout << "\nItem: " << list[i].getName() <<
-            " ID: " << list[i].getID() <<
-            " Stock: " << list[i].getQuantity() <<
-            " Price: $" << list[i].getPrice() << endl;
+            "\nID: " << list[i].getID() <<
+            "\nStock: " << list[i].getQuantity() <<
+            "\nPrice: $" << list[i].getPrice() << endl;
             itemFound = true;
-            cout<<"check1"<<endl;
         }
     }
-    cout <<"check"<<endl;
     if(!itemFound) {
         cout << "\nSorry item not found!" << endl;
     }
+};
+
+void Inventory::printReport()
+{
+    double total = 0;
+    int uniqueCount = 0;
+    double itemCount = 0;
+    for(int i = 0; i < list.size(); ++i)
+    {
+        total += list[i].getPrice() * list[i].getQuantity();
+        ++uniqueCount;
+        itemCount += list[i].getQuantity();
+    }
+    cout << "\nInventory Report: \n\n" <<
+    "Unique Items: " << uniqueCount <<
+    "\nTotal worth of " << itemCount << " items in stock: $" << total << endl;
 }
