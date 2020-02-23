@@ -7,7 +7,7 @@ using namespace std;
 class Menu {
     public:
     void mainMenu(Inventory &inventory);
-    void validateFile(int userChoice);
+    void validateInput(int userChoice, int menuLength);
     //void sortMenu();
     //void searchMenu();
 };

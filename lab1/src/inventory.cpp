@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <cctype>
 #include "../include/inventory.h"
 #include "../include/items.h"
 
@@ -12,7 +13,7 @@ void Inventory::importData()
     fstream inFile;
     string ID;
     string name;
-    string quantity;
+    int quantity;
     double price;
     
     inFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/data.txt");
@@ -21,22 +22,17 @@ void Inventory::importData()
         cout << "Problem openning file" << endl;
     }
     //transfering data from file to item list
-    while(!inFile.eof() && list.size() < 15) 
+    while(!inFile.eof()) 
     {
         inFile >> ID >> name >> quantity >> price;
+        //converting name to all lowercase
+        transform(name.begin(), name.end(), name.begin(), ::tolower);
         Items fill(ID, name, quantity, price);
         list.push_back(fill);
     }
 
     //Closing file
     inFile.close();
-
-    //Letting user know if list of data is too large and which items were not included
-    if (list.size() > 14)
-    {
-        cout << endl;
-        cout << "WARNING: File was too large only the first 15 items were imported" << endl;
-    }
 
     //pointing to item list
     for (int i = 0; i < list.size(); ++i)
@@ -99,3 +95,8 @@ void Inventory::sortItems(int userChoice)
         }
     }
 };
+
+void Inventory::searchItems(int userChoice)
+{
+    cout << "This search is working" << endl;
+}

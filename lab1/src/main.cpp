@@ -4,7 +4,6 @@
 #include <fstream>
 #include <vector>
 #include "../include/inventory.h"
-#include "../include/functions.h"
 #include "../include/items.h"
 #include "../include/menu.h"
 
