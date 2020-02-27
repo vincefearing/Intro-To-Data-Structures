@@ -37,7 +37,7 @@ void Menu::mainMenu(Inventory &inventory) {
         {
             case 1 : inventory.printUnsorted(); //Print unsorted
                 break;
-            case 2 : while(!quit) //Sort options
+            case 2 : inventory.sortItems();/*while(!quit) //Sort options
             {
             cout << "\nSort by: \n" <<
             "1. ID \n" <<
@@ -56,7 +56,7 @@ void Menu::mainMenu(Inventory &inventory) {
                 quit = true;
             }
             }
-            quit = false; //Resetting main menu condition after exiting sub menu
+            quit = false; //Resetting main menu condition after exiting sub menu*/
                 break;
             case 3 : while (!quit) //Search option
             {
