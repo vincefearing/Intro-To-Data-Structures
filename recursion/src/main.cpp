@@ -1,3 +1,5 @@
+// Vincent Fearing
+// Lab #2
 #include <iostream>
 #include <string>
 #include <vector>
@@ -6,13 +8,15 @@
 using namespace std;
 
 float powerOf(float base, int power);
+int sumOfSquaresUp(int terms);
 
 int main() 
 {
-    float base = 4;
-    int power = -2;
+    //float base = -4;
+    //int power = 3;
+    int terms = 5;
 
-    cout << powerOf(base, power) << endl;
+    cout << sumOfSquaresUp(terms) << endl;
     return 0;
 }
 
@@ -33,5 +37,22 @@ float powerOf(float base, int power)
         power = abs(power);
         result *= powerOf(base, power - 1);
         return 1 / result;
+    }
+}
+
+int sumOfSquaresUp(int terms)
+{
+    int result = terms;
+    const int base = terms;
+    int i = 2;
+    if (terms < 1)
+    {
+        return terms;
+    } else if (terms <= base) 
+    {
+        cout << " + (" << i << " * " << i << ")";
+        ++i;
+        result *= terms;
+        return  result += sumOfSquaresUp(terms - 1);
     }
 }
