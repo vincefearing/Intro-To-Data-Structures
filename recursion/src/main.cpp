@@ -43,15 +43,13 @@ float powerOf(float base, int power)
 int sumOfSquaresUp(int terms)
 {
     int result = terms;
-    const int base = terms;
-    int i = 2;
     if (terms < 1)
     {
         return terms;
-    } else if (terms <= base) 
+    } else if (terms <= terms) 
     {
-        cout << " + (" << i << " * " << i << ")";
-        ++i;
+        //int i = base - terms;
+        cout << " + (" << terms - (terms -1) << " * " << terms - (terms - 1) << ")";
         result *= terms;
         return  result += sumOfSquaresUp(terms - 1);
     }
