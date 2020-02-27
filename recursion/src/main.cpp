@@ -7,16 +7,14 @@
 
 using namespace std;
 
-float powerOf(float base, int power);
-int sumOfSquaresUp(int terms);
+float powerOf(float base, int power); //raises given number to the given power
+int sumOfSquaresUp(int terms); // returns the sum of squares in ascending order
+int sumOfSquaresDown(int terms); // returns the sum of squares in descending order
+void menu();
 
 int main() 
 {
-    //float base = -4;
-    //int power = 3;
-    int terms = 5;
-
-    cout << sumOfSquaresUp(terms) << endl;
+    
     return 0;
 }
 
@@ -43,14 +41,37 @@ float powerOf(float base, int power)
 int sumOfSquaresUp(int terms)
 {
     int result = terms;
-    if (terms < 1)
+    if (terms == 1)
     {
-        return terms;
-    } else if (terms <= terms) 
+        cout << "1";
+        return 1;
+    } else 
     {
-        //int i = base - terms;
-        cout << " + (" << terms - (terms -1) << " * " << terms - (terms - 1) << ")";
         result *= terms;
-        return  result += sumOfSquaresUp(terms - 1);
+        result += sumOfSquaresUp(terms - 1);
+        cout << " + (" << terms << " * " << terms << ")";
+        return result;
     }
 }
+
+int sumOfSquaresDown(int terms)
+{
+    int result;
+    if (terms == 1)
+    {
+        cout << "1";
+        return 1;
+    } else if (terms > 1)
+    {
+        cout << "(" << terms << " * " << terms << ") + ";
+        result = sumOfSquaresDown(terms - 1);
+        return (terms * terms) + result;
+    }
+}
+
+void menu()
+{
+    int userChoice;
+        
+}
+
