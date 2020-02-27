@@ -39,7 +39,7 @@ void Menu::mainMenu(Inventory &inventory) {
                 break;
             case 2 : while(!quit) //Sort options
             {
-            cout << "\n Sort by: \n" <<
+            cout << "\nSort by: \n" <<
             "1. ID \n" <<
             "2. Name \n" <<
             "3. Quantity \n" <<

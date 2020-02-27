@@ -5,6 +5,7 @@
 #include <cctype>
 #include "../include/inventory.h"
 #include "../include/items.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -44,24 +45,20 @@ void Inventory::importData()
 //Print raw data
 void Inventory::printUnsorted() 
 {
+    cout << "Unsorted Inventory\n" << setw(19) << left << "ID" << setw(20) << left << " Name" << setw(21) << right << " Quantity" << setw(20) << right << " Price" << endl;
     for(int i = 0; i < list.size(); ++i)
     {
-        cout << "\nID: " << list[i].getID() << 
-        "\nName: " << list[i].getName() <<
-        "\nQuantity: " << list[i].getQuantity() <<
-        "\nPrice: $" << list[i].getPrice() << endl;
+        cout << setw(20) << left << list[i].getID() << setw(20) <<  list[i].getName() << setw(20) << right << list[i].getQuantity() << setw(20) << right << list[i].getPrice() << endl;
     }
 };
 
 //prints sorted list of pointers
 void Inventory::printItems()
 {
-    for (int i = 0; i < list.size(); ++i) 
+    cout << "Inventory\n" << setw(19) << left << "ID" << setw(20) << left << " Name" << setw(21) << right << " Quantity" << setw(20) << right << " Price" << endl;
+    for(int i = 0; i < list.size(); ++i)
     {
-        cout << "ID: " << listPtrs[i]->getID() << endl;
-        cout << "Item Name: " << listPtrs[i]->getName() << endl;
-        cout << "Quantity: " << listPtrs[i]->getQuantity() << endl;
-        cout << "Price: $" << listPtrs[i]->getPrice() << endl << endl;
+        cout << setw(20) << left << listPtrs[i]->getID() << setw(20) <<  listPtrs[i]->getName() << setw(20) << right << listPtrs[i]->getQuantity() << setw(20) << right << listPtrs[i]->getPrice() << endl;
     }
 };
 
@@ -148,5 +145,5 @@ void Inventory::printReport()
     }
     cout << "\nInventory Report: \n\n" <<
     "Unique Items: " << uniqueCount <<
-    "\nTotal worth of " << itemCount << " items in stock: $" << total << endl;
+    "\nTotal worth of " << itemCount << " items in stock: " << total << endl;
 }
