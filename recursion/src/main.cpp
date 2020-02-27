@@ -1,32 +1,37 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
-int powerOf(int base, int power);
+float powerOf(float base, int power);
 
 int main() 
 {
-    int base = -5;
-    int power = -5;
+    float base = 4;
+    int power = -2;
 
     cout << powerOf(base, power) << endl;
     return 0;
 }
 
-int powerOf(int base, int power) 
+float powerOf(float base, int power) 
 {   
-    double result = base;
+    float result = base;
     if (power == 1) 
     {
         return result;
-    } else
+    } else if (power == 0)
     {
-        return result *= powerOf(base, power-1);
+        return result = 1;
+    } else if (power > 1)
+    {
+        return result *= powerOf(base, power - 1);
+    } else if (power < 0)
+    {
+        power = abs(power);
+        result *= powerOf(base, power - 1);
+        return 1 / result;
     }
-    
-    
-    
-    
 }
