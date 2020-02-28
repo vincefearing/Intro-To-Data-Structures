@@ -94,7 +94,7 @@ void menu()
             {
                 cout << "\nPlease enter a base number: ";
                 cin >> base;
-                if(!cin || (base < -10 || base > 10))
+                if(!cin)
                 {
                     cin.clear();
                     cin.ignore(100, '\n');
