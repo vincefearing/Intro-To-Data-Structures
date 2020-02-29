@@ -15,6 +15,7 @@ void Menu::validateInput(int userChoice, int menuLength) {
     }
 }
 
+//Main menu
 void Menu::mainMenu(Inventory &inventory) {
     int userChoice = 0;
     bool quit = false;
@@ -39,20 +40,7 @@ void Menu::mainMenu(Inventory &inventory) {
                 break;
             case 2 : sortMenu(inventory);
                 break;
-            case 3 : while (!quit) //Search option
-            {
-                cout << "\n1. Search \n" <<
-                "2. Main menu\n" << endl;
-                cin >> userChoice;
-                validateInput(userChoice, 2);
-                switch(userChoice)
-                {
-                    case 1 : inventory.searchItems();
-                        break;
-                    case 2 : quit = true;
-                }
-            }
-            quit = false;
+            case 3 : searchMenu(inventory);
                 break;
             case 4 : inventory.printReport();
                 break; 
@@ -61,6 +49,7 @@ void Menu::mainMenu(Inventory &inventory) {
     }
 };
 
+//Submenu for sorting
 void Menu::sortMenu(Inventory &inventory)
 {
     bool quit = false;
@@ -88,6 +77,26 @@ void Menu::sortMenu(Inventory &inventory)
         if (userChoice == 5)
         {
             quit = true;
+        }
+    }
+}
+
+//Submenu for searching
+void Menu::searchMenu(Inventory &inventory)
+{
+    bool quit = false;
+    int userChoice = 0;
+    while (!quit) //Search option
+    {
+        cout << "\n1. Search \n" <<
+        "2. Main menu\n" << endl;
+        cin >> userChoice;
+        validateInput(userChoice, 2);
+        switch(userChoice)
+        {
+            case 1 : inventory.searchItems();
+                break;
+            case 2 : quit = true;
         }
     }
 }

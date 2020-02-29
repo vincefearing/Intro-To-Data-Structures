@@ -115,6 +115,8 @@ void Inventory::searchItems()
     string searchFor;
     cout << "Search: ";
     cin >> searchFor;
+    cin.clear();
+    cin.ignore(1000, '\n');
     transform(searchFor.begin(), searchFor.end(), searchFor.begin(), ::tolower);
     cout << "\n";
     bool itemFound = false;
@@ -122,10 +124,9 @@ void Inventory::searchItems()
     {
         if(searchFor == list[i].getName() || searchFor == list[i].getID())
         {
-            cout << "\nItem: " << list[i].getName() <<
-            "\nID: " << list[i].getID() <<
-            "\nStock: " << list[i].getQuantity() <<
-            "\nPrice: $" << list[i].getPrice() << endl;
+            cout << setw(19) << left << "ID" << setw(20) << left << " Name" << setw(21) << right << " Quantity" << setw(20) << right << " Price" << endl;
+            cout << setw(20) << left << listPtrs[i]->getID() << setw(20) <<  listPtrs[i]->getName() << setw(20) << right << listPtrs[i]->getQuantity() << setw(20) << right << listPtrs[i]->getPrice() << endl;
+
             itemFound = true;
         }
     }
