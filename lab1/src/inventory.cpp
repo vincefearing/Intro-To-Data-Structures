@@ -64,76 +64,49 @@ void Inventory::printItems()
 };
 
 //Sort items by name, ID, stock, and price
-void Inventory::sortItems() 
+void Inventory::sortItems(int userChoice) 
 {
     bool sorted = false;
     bool swap = false;
-    bool quit = false;
-    int userChoice = 0;
-    while(!quit) //Sort options
+
+    while (!sorted) 
     {
-        cout << "\nSort by: \n" <<
-        "1. ID \n" <<
-        "2. Name \n" <<
-        "3. Quantity \n" <<
-        "4. Price \n" <<
-        "5. Main Menu \n" << endl;
-        cin >> userChoice;
-
-        //Error checking menu choice
-        if(!cin || userChoice > 5)
+        sorted = true;
+        for(int i = 0; i < list.size()-1; ++i)
         {
-            cout << "Input Error. Please choose from the options below" << endl;
-        }
-        while (!sorted) 
-        {
-            sorted = true;
-            for(int i = 0; i < list.size()-1; ++i)
+            swap = false;
+            switch(userChoice)
             {
-                swap = false;
-                switch(userChoice)
+                case 1 : if(listPtrs[i]->getID() > listPtrs[i+1]->getID())
                 {
-                    case 1 : if(listPtrs[i]->getID() > listPtrs[i+1]->getID())
-                    {
-                        swap = true;
-                    } 
-                        break;
-                    case 2 : if(listPtrs[i]->getName() > listPtrs[i+1]->getName())
-                    {
-                        swap = true;
-                    }
-                        break;
-                    case 3 : if(listPtrs[i]->getQuantity() > listPtrs[i+1]->getQuantity())
-                    {
-                        swap = true;
-                    }
-                        break;
-                    case 4 : if(listPtrs[i]->getPrice() > listPtrs[i+1]->getPrice())
-                    {
-                        swap = true;
-                    }
-                        break;
-                }
-                if(swap)
+                    swap = true;
+                } 
+                    break;
+                case 2 : if(listPtrs[i]->getName() > listPtrs[i+1]->getName())
                 {
-                    Items *swap = listPtrs[i+1];
-                        listPtrs[i+1] = listPtrs[i];
-                        listPtrs[i] = swap;
-                        sorted = false;
+                    swap = true;
                 }
+                    break;
+                case 3 : if(listPtrs[i]->getQuantity() > listPtrs[i+1]->getQuantity())
+                {
+                    swap = true;
+                }
+                    break;
+                case 4 : if(listPtrs[i]->getPrice() > listPtrs[i+1]->getPrice())
+                {
+                    swap = true;
+                }
+                    break;
             }
-        } 
-        printItems();
-        if (userChoice == 5)
-        {
-            quit = true;
+            if(swap)
+            {
+                Items *swap = listPtrs[i+1];
+                    listPtrs[i+1] = listPtrs[i];
+                    listPtrs[i] = swap;
+                    sorted = false;
+            }
         }
-    }
-        quit = false; //Resetting main menu condition after exiting sub menu
-
-
-
-    
+    } 
 };
 
 //Function letting user search by ID or Name

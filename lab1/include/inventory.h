@@ -15,7 +15,7 @@ class Inventory
     void printUnsorted();
     void importData();
     void printItems();
-    void sortItems();
+    void sortItems(int userChoice);
     void searchItems();
     void printReport();
 };

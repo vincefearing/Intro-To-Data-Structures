@@ -37,7 +37,7 @@ void Menu::mainMenu(Inventory &inventory) {
         {
             case 1 : inventory.printUnsorted(); //Print unsorted
                 break;
-            case 2 : inventory.sortItems();/*while(!quit) //Sort options
+            case 2 : inventory.sortItems(); cout << "sort items" << endl; inventory.printItems();/*while(!quit) //Sort options
             {
             cout << "\nSort by: \n" <<
             "1. ID \n" <<
@@ -79,3 +79,26 @@ void Menu::mainMenu(Inventory &inventory) {
         }
     }
 };
+
+void sortMenu(Inventory &inventory)
+{
+    int userChoice = 0;
+    while(!quit) //Sort options
+    {
+        cout << "\nSort by: \n" <<
+        "1. ID \n" <<
+        "2. Name \n" <<
+        "3. Quantity \n" <<
+        "4. Price \n" <<
+        "5. Main Menu \n" << endl;
+        cin >> userChoice;
+
+        //Error checking menu choice
+        inventory.sortItems(userChoice);
+        inventory.printItems();
+        if (userChoice == 5)
+        {
+            quit = true;
+        }
+    }
+}
