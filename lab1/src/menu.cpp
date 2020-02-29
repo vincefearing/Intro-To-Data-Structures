@@ -37,26 +37,7 @@ void Menu::mainMenu(Inventory &inventory) {
         {
             case 1 : inventory.printUnsorted(); //Print unsorted
                 break;
-            case 2 : inventory.sortItems(); cout << "sort items" << endl; inventory.printItems();/*while(!quit) //Sort options
-            {
-            cout << "\nSort by: \n" <<
-            "1. ID \n" <<
-            "2. Name \n" <<
-            "3. Quantity \n" <<
-            "4. Price \n" <<
-            "5. Main Menu \n" << endl;
-            cin >> userChoice;
-
-            //Error checking menu choice
-            validateInput(userChoice, 5);
-            inventory.sortItems(userChoice);
-            inventory.printItems();
-            if (userChoice == 5)
-            {
-                quit = true;
-            }
-            }
-            quit = false; //Resetting main menu condition after exiting sub menu*/
+            case 2 : sortMenu(inventory);
                 break;
             case 3 : while (!quit) //Search option
             {
@@ -80,8 +61,9 @@ void Menu::mainMenu(Inventory &inventory) {
     }
 };
 
-void sortMenu(Inventory &inventory)
+void Menu::sortMenu(Inventory &inventory)
 {
+    bool quit = false;
     int userChoice = 0;
     while(!quit) //Sort options
     {
@@ -91,9 +73,16 @@ void sortMenu(Inventory &inventory)
         "3. Quantity \n" <<
         "4. Price \n" <<
         "5. Main Menu \n" << endl;
-        cin >> userChoice;
 
+        cin >> userChoice;
         //Error checking menu choice
+        if(!cin || (userChoice < 1 || userChoice > 5))
+        {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
+        }
+
         inventory.sortItems(userChoice);
         inventory.printItems();
         if (userChoice == 5)

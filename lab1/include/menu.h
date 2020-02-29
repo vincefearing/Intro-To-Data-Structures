@@ -9,6 +9,6 @@ class Menu {
     void mainMenu(Inventory &inventory);
     void sortMenu(Inventory &inventory);
     void validateInput(int userChoice, int menuLength);
-    //void sortMenu();
+    void sortMenu(Inventory &inventory);
     //void searchMenu();
 };
