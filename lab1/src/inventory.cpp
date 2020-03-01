@@ -10,25 +10,34 @@
 
 using namespace std;
 
+//importing data from file
 void Inventory::importData() 
 {
     fstream inFile;
+    ofstream outFile;
     string ID;
     string name;
     int quantity;
     double price;
     
+    outFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/errors.txt", ofstream::out);
     inFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/data.txt");
     if (!inFile) 
     {
         cout << "Problem openning file" << endl;
     }
+
     //transfering data from file to item list
     while(!inFile.eof()) 
     {
         inFile >> ID >> name >> quantity >> price;
         //converting name to all lowercase
         transform(name.begin(), name.end(), name.begin(), ::tolower);
+        if(quantity < 0 || price < 0)
+        {
+            cout << "\nNegative value error found in record: " << ID << endl;
+            outFile << "Negative value error in record: " << setw(20) << left << ID << setw(20) << name << setw(20) << right << quantity << setw(20) << right << price << endl;
+        }
         Items fill(ID, name, quantity, price);
         list.push_back(fill);
     }
@@ -135,6 +144,7 @@ void Inventory::searchItems()
     }
 };
 
+//Prints unique items and totals
 void Inventory::printReport()
 {
     double total = 0;
