@@ -40,7 +40,7 @@ void Menu::mainMenu(Inventory &inventory) {
                 break;
             case 2 : sortMenu(inventory);
                 break;
-            case 3 : searchMenu(inventory);
+            case 3 : inventory.searchItems();
                 break;
             case 4 : inventory.printReport();
                 break; 
@@ -82,25 +82,5 @@ void Menu::sortMenu(Inventory &inventory)
         }
         
         
-    }
-}
-
-//Submenu for searching
-void Menu::searchMenu(Inventory &inventory)
-{
-    bool quit = false;
-    int userChoice = 0;
-    while (!quit) //Search option
-    {
-        cout << "\n1. Search \n" <<
-        "2. Main menu\n" << endl;
-        cin >> userChoice;
-        validateInput(userChoice, 2);
-        switch(userChoice)
-        {
-            case 1 : inventory.searchItems();
-                break;
-            case 2 : quit = true;
-        }
     }
 }
