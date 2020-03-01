@@ -71,13 +71,17 @@ void Menu::sortMenu(Inventory &inventory)
             cin.ignore(1000, '\n');
             cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
         }
-
-        inventory.sortItems(userChoice);
-        inventory.printItems();
-        if (userChoice == 5)
+        else if (userChoice == 5)
         {
             quit = true;
         }
+        else
+        {
+            inventory.sortItems(userChoice);
+            inventory.printItems();
+        }
+        
+        
     }
 }
 
