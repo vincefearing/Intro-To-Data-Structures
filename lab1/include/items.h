@@ -12,15 +12,17 @@ class Items {
     
     public:
     //Getters and Setters
-    string getID();
-    void setID(string ID);
-    string getName();
-    void setName(string name);
-    double getQuantity();
-    void setQuantity(double quantity);
-    double getPrice();
-    void setPrice(double price);
+    string getID() const;
+    string getName() const;
+    double getQuantity() const;
+    double getPrice() const;
+    void setID(string id);
+    void setName(string newName);
+    void setQuantity(double newQuantity);
+    void setPrice(double newPrice);
+    //void 
 
     //constructor
-    Items(string ID, string name, double quantity, double price);
+    Items(string id, string newName, double newQuantity, double newPrice);
+    Items();
 };

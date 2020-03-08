@@ -4,44 +4,48 @@
 
 using namespace std;
 
-//Getters and Setters
-string Items::getID() 
+//Getters
+string Items::getID() const
 {
     return ID;
 }
-void Items::setID(string ID) 
-{
-    this->ID = ID;
-}
-string Items::getName()
+string Items::getName() const
 {
     return name;
 }
-void Items::setName(string name) 
-{
-    this->name = name;
-}
-double Items::getQuantity()
+double Items::getQuantity() const
 {
     return quantity;
 }
-void Items::setQuantity(double quantity) 
-{
-    this->quantity = quantity;
-}
-double Items::getPrice()
+double Items::getPrice() const
 {
     return price;
 }
-void Items::setPrice(double price) 
+
+//Setters
+void Items::setID(string id) 
 {
-    this->price = price;
+    id = ID;
+}
+void Items::setName(string newName) 
+{
+    newName = name;
+}
+void Items::setQuantity(double newQuantity) 
+{
+    newQuantity = quantity;
+}
+void Items::setPrice(double newPrice) 
+{
+    newPrice = price;
 }
 
-Items::Items (string ID, string name, double quantity, double price) 
+Items::Items (string id, string newName, double newQuantity, double newPrice) 
 {
-    this-> ID = ID;
-    this-> name = name;
-    this-> quantity = quantity;
-    this-> price = price;
+    id = ID;
+    newName = name;
+    newQuantity = quantity;
+    newPrice = price;
 }
+
+Items::Items(){};

@@ -14,17 +14,18 @@ using namespace std;
 void Inventory::importData() 
 {
     fstream inFile;
-    ofstream outFile;
+    ofstream errorFile;
     string ID;
     string name;
     int quantity;
     double price;
     
-    outFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/errors.txt", ofstream::out);
+    errorFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/errors.txt", ofstream::out);
     inFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/lab1/data.txt");
     if (!inFile) 
     {
         cout << "Problem opening file" << endl;
+        exit(1);
     }
 
     //transfering data from file to item list
@@ -36,18 +37,18 @@ void Inventory::importData()
         if(quantity < 0 || price < 0)
         {
             cout << "\nNegative value error found in record: " << ID << endl;
-            outFile << "Negative value error in record: " << setw(20) << left << ID << setw(20) << name << setw(20) << right << quantity << setw(20) << right << price << endl;
+            errorFile << "Negative value error in record: " << setw(20) << left << ID << setw(20) << name << setw(20) << right << quantity << setw(20) << right << price << endl;
         }
         else
         {
-            Items fill(ID, name, quantity, price);
-            list.push_back(fill);
+            Items temp(ID, name, quantity, price);
+            list.push_back(temp);
         }
     }
 
     //Closing file
     inFile.close();
-    outFile.close();
+    errorFile.close();
 
     //pointing to item list
     for (int i = 0; i < list.size(); ++i)
@@ -73,6 +74,7 @@ void Inventory::printItems()
     for(int i = 0; i < list.size(); ++i)
     {
         cout << setw(20) << left << listPtrs[i]->getID() << setw(20) <<  listPtrs[i]->getName() << setw(20) << right << listPtrs[i]->getQuantity() << setw(20) << right << listPtrs[i]->getPrice() << endl;
+        //listPtrs[i]->show();
     }
 };
 
@@ -90,10 +92,9 @@ void Inventory::sortItems(int userChoice)
             swap = false;
             switch(userChoice)
             {
-                case 1 : if(listPtrs[i]->getID() > listPtrs[i+1]->getID())
-                {
-                    swap = true;
-                } 
+                case 1 :
+                    swap = listPtrs[i]->getID() > listPtrs[i+1]->getID();
+            
                     break;
                 case 2 : if(listPtrs[i]->getName() > listPtrs[i+1]->getName())
                 {
