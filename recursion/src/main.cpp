@@ -25,16 +25,24 @@ float powerOf(float base, int power)
 {   
 
     float result = base;
-    if (power == 1) 
+    if (base == 0 && power < 0)
+    {
+        cout << "Undefined, can't divide by ";
+        return 0;
+    }
+    else if (power == 1) 
     {
         return result;
-    } else if (power == 0)
+    } 
+    else if (power == 0)
     {
         return result = 1;
-    } else if (power > 1)
+    } 
+    else if (power > 1)
     {
         return result *= powerOf(base, power - 1);
-    } else if (power < 0)
+    } 
+    else if (power < 0)
     {
         power = abs(power);
         result *= powerOf(base, power - 1);
@@ -91,7 +99,7 @@ void squareUpMenu()
     int solution = 0;
     float base = 0;
 
-    cout << "\nPlease enter a positve number: ";
+    cout << "\nPlease enter a number above 0: ";
     cin >> base;
     if(!cin || base < 1)
     {
@@ -100,7 +108,7 @@ void squareUpMenu()
         cout << "Input must be positive!" << endl;
     } else if (base > 1)
     {
-        solution = sumOfSquaresDown(base);
+        solution = sumOfSquaresUp(base);
         cout << " = " << solution << "\n" << endl;
     }
 }
@@ -171,3 +179,212 @@ void menu()
     }
 
 }
+
+/*
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 0
+
+Please enter a power: 10
+
+0
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 1
+
+Please enter a power: 10
+
+1
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 0
+
+Please enter a power: 1
+
+0
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 0
+
+Please enter a power: 0
+
+1
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 1
+
+Please enter a power: 0
+
+1
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 5
+
+Please enter a power: 5
+
+3125
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 2
+
+Please enter a power: -2
+
+0.25
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: -2
+
+Please enter a power: -2
+
+0.25
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+10
+Incorrect input. Please choose a single digit corresponding to your desired menu item
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 10
+
+Please enter a power: 40
+
+inf
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 10
+
+Please enter a power: 20
+
+1e+20
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 10
+
+Please enter a power: 2
+
+100
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+2
+
+Please enter a positive number: 3
+1 + (2 * 2) + (3 * 3) = 14
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+3
+
+Please enter a positve number: 3
+(3 * 3) + (2 * 2) + 1 = 14
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+4
+*/
