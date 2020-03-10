@@ -92,24 +92,13 @@ void Inventory::sortItems(int userChoice)
             swap = false;
             switch(userChoice)
             {
-                case 1 :
-                    swap = listPtrs[i]->getID() > listPtrs[i+1]->getID();
-            
+                case 1 : swap = listPtrs[i]->getID() > listPtrs[i+1]->getID();
                     break;
-                case 2 : if(listPtrs[i]->getName() > listPtrs[i+1]->getName())
-                {
-                    swap = true;
-                }
+                case 2 : swap = listPtrs[i]->getName() > listPtrs[i+1]->getName();
                     break;
-                case 3 : if(listPtrs[i]->getQuantity() > listPtrs[i+1]->getQuantity())
-                {
-                    swap = true;
-                }
+                case 3 : swap = listPtrs[i]->getQuantity() > listPtrs[i+1]->getQuantity();
                     break;
-                case 4 : if(listPtrs[i]->getPrice() > listPtrs[i+1]->getPrice())
-                {
-                    swap = true;
-                }
+                case 4 : swap = listPtrs[i]->getPrice() > listPtrs[i+1]->getPrice();
                     break;
             }
             if(swap)
