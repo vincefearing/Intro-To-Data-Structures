@@ -1,5 +1,5 @@
 // Vincent Fearing
-// Lab #2
+// Lab #2 T
 #include <iostream>
 #include <string>
 #include <vector>
@@ -73,7 +73,7 @@ void powerMenu()
             cin.ignore(100, '\n');
             cout << "Incorrect input. Please choose any real number" << endl;
         }
-        cout << "\n" << powerOf(base, power) << "\n" << endl;
+        cout << "\n" << "Result: " << base << " ^ " << power << " = " << powerOf(base, power) << "\n" << endl;
         quit = true;
     }
 }
@@ -181,8 +181,6 @@ void menu()
 }
 
 /*
-Please choose option from menu below 
-
 1. Raise To Power
 2. Sum Of Squares Ascending
 3. Sum Of Squares Descending
@@ -190,86 +188,11 @@ Please choose option from menu below
 
 1
 
-Please enter a base number: 0
+Please enter a base number: 3
 
-Please enter a power: 10
+Please enter a power: 3
 
-0
-
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-1
-
-Please enter a base number: 1
-
-Please enter a power: 10
-
-1
-
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-1
-
-Please enter a base number: 0
-
-Please enter a power: 1
-
-0
-
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-1
-
-Please enter a base number: 0
-
-Please enter a power: 0
-
-1
-
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-1
-
-Please enter a base number: 1
-
-Please enter a power: 0
-
-1
-
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-1
-
-Please enter a base number: 5
-
-Please enter a power: 5
-
-3125
+Result: 3 ^ 3 = 27
 
 Please choose option from menu below 
 
@@ -282,48 +205,9 @@ Please choose option from menu below
 
 Please enter a base number: 2
 
-Please enter a power: -2
+Please enter a power: -3
 
-0.25
-
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-1
-
-Please enter a base number: -2
-
-Please enter a power: -2
-
-0.25
-
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-10
-Incorrect input. Please choose a single digit corresponding to your desired menu item
-Please choose option from menu below 
-
-1. Raise To Power
-2. Sum Of Squares Ascending
-3. Sum Of Squares Descending
-4. Quit
-
-1
-
-Please enter a base number: 10
-
-Please enter a power: 40
-
-inf
+Result: 2 ^ -3 = 0.125
 
 Please choose option from menu below 
 
@@ -334,11 +218,11 @@ Please choose option from menu below
 
 1
 
-Please enter a base number: 10
+Please enter a base number: 4
 
-Please enter a power: 20
+Please enter a power: 1
 
-1e+20
+Result: 4 ^ 1 = 4
 
 Please choose option from menu below 
 
@@ -349,11 +233,26 @@ Please choose option from menu below
 
 1
 
-Please enter a base number: 10
+Please enter a base number: 0
 
-Please enter a power: 2
+Please enter a power: 4
 
-100
+Result: 0 ^ 4 = 0
+
+Please choose option from menu below 
+
+1. Raise To Power
+2. Sum Of Squares Ascending
+3. Sum Of Squares Descending
+4. Quit
+
+1
+
+Please enter a base number: 0 
+
+Please enter a power: -4
+
+Result: 0 ^ -4 = Undefined, can't divide by 0
 
 Please choose option from menu below 
 
@@ -364,8 +263,8 @@ Please choose option from menu below
 
 2
 
-Please enter a positive number: 3
-1 + (2 * 2) + (3 * 3) = 14
+Please enter a number above 0: 4
+1 + (2 * 2) + (3 * 3) + (4 * 4) = 30
 
 Please choose option from menu below 
 
@@ -376,8 +275,8 @@ Please choose option from menu below
 
 3
 
-Please enter a positve number: 3
-(3 * 3) + (2 * 2) + 1 = 14
+Please enter a positve number: 6
+(6 * 6) + (5 * 5) + (4 * 4) + (3 * 3) + (2 * 2) + 1 = 91
 
 Please choose option from menu below 
 
@@ -385,6 +284,4 @@ Please choose option from menu below
 2. Sum Of Squares Ascending
 3. Sum Of Squares Descending
 4. Quit
-
-4
 */
