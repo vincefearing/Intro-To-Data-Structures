@@ -40,7 +40,7 @@ void Menu::mainMenu(Inventory &inventory) {
                 break;
             case 2 : sortMenu(inventory);
                 break;
-            case 3 : inventory.searchItems();
+            case 3 : searchMenu(inventory);
                 break;
             case 4 : inventory.printReport();
                 break; 
@@ -83,4 +83,16 @@ void Menu::sortMenu(Inventory &inventory)
         
         
     }
+};
+
+void Menu::searchMenu(Inventory &inventory)
+{
+    string searchFor;
+    cout << "Search: ";
+    cin >> searchFor;
+    cin.clear();
+    cin.ignore(1000, '\n');
+    transform(searchFor.begin(), searchFor.end(), searchFor.begin(), ::tolower);
+    cout << "\n";
+    inventory.searchItems(searchFor);
 }

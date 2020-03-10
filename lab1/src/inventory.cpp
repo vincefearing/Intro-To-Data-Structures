@@ -113,15 +113,8 @@ void Inventory::sortItems(int userChoice)
 };
 
 //Function letting user search by ID or Name
-void Inventory::searchItems()
+void Inventory::searchItems(string searchFor)
 {
-    string searchFor;
-    cout << "Search: ";
-    cin >> searchFor;
-    cin.clear();
-    cin.ignore(1000, '\n');
-    transform(searchFor.begin(), searchFor.end(), searchFor.begin(), ::tolower);
-    cout << "\n";
     bool itemFound = false;
     for(int i = 0; i < list.size() && !itemFound; ++i)
     {

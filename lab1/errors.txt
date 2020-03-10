@@ -1,4 +1,2 @@
-Negative value error in record: 1228                apple                                  1                  -1
-Negative value error in record: 5765tyyti           strudel                               -5                10.5
-Negative value error in record: 7890                cod                                    9                -6.7
-Negative value error in record: 1000                poptarts                               2                -1.5
+Negative value error in record: 609818973           wirelessmouse                        284               -60.3
+Negative value error in record: 124809737           onetomanyitems                      -341                 500

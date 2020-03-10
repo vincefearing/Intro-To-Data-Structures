@@ -42,10 +42,10 @@ void Items::setPrice(double newPrice)
 
 Items::Items (string id, string newName, double newQuantity, double newPrice) 
 {
-    id = ID;
-    newName = name;
-    newQuantity = quantity;
-    newPrice = price;
+    ID = id;
+    name = newName;
+    quantity = newQuantity;
+    price = newPrice;
 }
 
 Items::Items(){};
