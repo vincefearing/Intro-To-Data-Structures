@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "../include/items.h"
 
 using namespace std;
@@ -49,3 +50,13 @@ Items::Items (string id, string newName, double newQuantity, double newPrice)
 }
 
 Items::Items(){};
+
+void Items::printItem()
+{
+    cout << setw(20) << left << ID << setw(20) <<  name << setw(20) << right << quantity << setw(20) << right << price << endl;
+}
+
+void Items::listItems()
+{
+    
+}

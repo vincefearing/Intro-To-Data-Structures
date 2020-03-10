@@ -63,7 +63,7 @@ void Inventory::printUnsorted()
     cout << "Unsorted Inventory\n" << setw(19) << left << "ID" << setw(20) << left << " Name" << setw(21) << right << " Quantity" << setw(20) << right << " Price" << endl;
     for(int i = 0; i < list.size(); ++i)
     {
-        cout << setw(20) << left << list[i].getID() << setw(20) <<  list[i].getName() << setw(20) << right << list[i].getQuantity() << setw(20) << right << list[i].getPrice() << endl;
+        list[i].printItem();
     }
 };
 
@@ -73,7 +73,7 @@ void Inventory::printItems()
     cout << "Inventory\n" << setw(19) << left << "ID" << setw(20) << left << " Name" << setw(21) << right << " Quantity" << setw(20) << right << " Price" << endl;
     for(int i = 0; i < list.size(); ++i)
     {
-        cout << setw(20) << left << listPtrs[i]->getID() << setw(20) <<  listPtrs[i]->getName() << setw(20) << right << listPtrs[i]->getQuantity() << setw(20) << right << listPtrs[i]->getPrice() << endl;
+        listPtrs[i]->printItem();
         //listPtrs[i]->show();
     }
 };
@@ -121,8 +121,7 @@ void Inventory::searchItems(string searchFor)
         if(searchFor == listPtrs[i]->getName() || searchFor == listPtrs[i]->getID())
         {
             cout << setw(19) << left << "ID" << setw(20) << left << " Name" << setw(21) << right << " Quantity" << setw(20) << right << " Price" << endl;
-            cout << setw(20) << left << listPtrs[i]->getID() << setw(20) <<  listPtrs[i]->getName() << setw(20) << right << listPtrs[i]->getQuantity() << setw(20) << right << listPtrs[i]->getPrice() << endl;
-
+            listPtrs[i]->printItem();
             itemFound = true;
         }
     }

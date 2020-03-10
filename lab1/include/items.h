@@ -20,6 +20,8 @@ class Items {
     void setName(string newName);
     void setQuantity(double newQuantity);
     void setPrice(double newPrice);
+    void printItem();
+    void listItems();
     //void 
 
     //constructor
