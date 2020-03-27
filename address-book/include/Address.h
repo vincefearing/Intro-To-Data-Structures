@@ -13,6 +13,5 @@ class Address {
     int zip;
 
     public:
-    Address();
-    Address(int streetNum, string streetName, string cityName, string stateName, int zipCode);
+    void setAddress(int streetNum, string streetName, string cityName, string stateName, int zipCode);
 };
