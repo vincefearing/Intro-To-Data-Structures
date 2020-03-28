@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class Record {
+class Record 
+{
     private:
     string firstName;
     string lastName;

@@ -4,7 +4,8 @@
 
 using namespace std;
 
-class Address {
+class Address 
+{
     private:
     int strNum;
     string street;
