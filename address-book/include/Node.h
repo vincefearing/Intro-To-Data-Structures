@@ -7,10 +7,7 @@ using namespace std;
 
 class Node
 {
-    private:
+    public:
     Record record;
     Node *next;
-
-    public:
-    Node();
 };
