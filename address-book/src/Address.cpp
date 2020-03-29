@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Address::setAddress(int streetNum, string streetName, string cityName, string stateName, int zipCode)
+void Address::setAddress(string streetNum, string streetName, string cityName, string stateName, string zipCode)
 {
     strNum = streetNum;
     street = streetName;

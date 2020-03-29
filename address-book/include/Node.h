@@ -1,5 +1,5 @@
 #pragma once
-#include "record.h"
+#include "Record.h"
 #include <iostream>
 #include <string>
 

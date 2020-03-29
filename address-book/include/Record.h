@@ -10,10 +10,10 @@ class Record
     private:
     string firstName;
     string lastName;
-    int phoneNum;
+    string phoneNum;
     Address address;
 
     public:
     Record();
-    void setRecord(string fName, string lName, int phoneNumber, int streetNum, string streetName, string cityName, string stateName, int zipCode);
+    void setRecord(string fName, string lName, string phoneNumber, string streetNum, string streetName, string cityName, string stateName, string zipCode);
 };

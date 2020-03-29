@@ -7,13 +7,13 @@ using namespace std;
 class Address 
 {
     private:
-    int strNum;
+    string strNum;
     string street;
     string city;
     string state;
-    int zip;
+    string zip;
 
     public:
-    void setAddress(int streetNum, string streetName, string cityName, string stateName, int zipCode);
+    void setAddress(string streetNum, string streetName, string cityName, string stateName, string zipCode);
     //void printAddress();
 };
