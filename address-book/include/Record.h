@@ -14,6 +14,6 @@ class Record
     Address address;
 
     public:
-    Record();
     void setRecord(string fName, string lName, string phoneNumber, string streetNum, string streetName, string cityName, string stateName, string zipCode);
+    void printRecord();
 };

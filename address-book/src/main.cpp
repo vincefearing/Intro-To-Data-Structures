@@ -10,6 +10,7 @@ int main() {
 
     AddressBook adBook;
     adBook.importData();
+    adBook.printData();
     cout << "did something" << endl;
     return 0;
 }

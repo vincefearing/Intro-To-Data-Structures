@@ -29,7 +29,6 @@ void AddressBook::addContact(string fName, string lName, string phoneNumber, str
         tail->next = temp;
         tail = temp;
     }
-    cout << "Node being created" << endl;
 }
 
 void AddressBook::importData()
@@ -45,20 +44,19 @@ void AddressBook::importData()
     while(!inFile.eof())
     {
         inFile >> firstName >> lastName >> stNum >> stName >> city >> state >> zip >> phoneNum;
-        cout << firstName << " " << lastName << " " << stNum << " " << city << " " << state << " " << zip << " " << phoneNum << endl;
-        //addContact(firstName, lastName, phoneNum, stNum, stName, city, state, zip);
+        addContact(firstName, lastName, phoneNum, stNum, stName, city, state, zip);
         //cout << "Contact created" << endl;
     }
     
 }
 
-/*
-      string firstName;
-    string lastName;
-    int stNum = 0;
-    string stName;
-    string city;
-    string state;
-    int zip = 0;
-    int phoneNum = 0;
-*/
+void AddressBook::printData()
+{
+    Node* current = new Node;
+    current = head;
+    while (current != NULL)
+    {
+        current->record.printRecord();
+        current = current->next;
+    }
+}

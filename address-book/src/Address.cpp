@@ -12,3 +12,8 @@ void Address::setAddress(string streetNum, string streetName, string cityName, s
     state = stateName;
     zip = zipCode;
 }
+
+void Address::printAddress()
+{
+    cout << strNum << " " << street << " " << city << ", " << state << " " << zip;
+}
