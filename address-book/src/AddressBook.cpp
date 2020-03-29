@@ -9,8 +9,3 @@ AddressBook::AddressBook()
     head = NULL;
     tail = NULL;
 };
-
-void AddressBook::append()
-{
-    
-}

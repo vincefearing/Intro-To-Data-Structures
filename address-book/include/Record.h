@@ -15,5 +15,5 @@ class Record
 
     public:
     Record();
-    Record(string fName, string lName, int phoneNumber, int streetNum, string streetName, string cityName, string stateName, int zipCode);
+    void setRecord(string fName, string lName, int phoneNumber, int streetNum, string streetName, string cityName, string stateName, int zipCode);
 };

@@ -6,7 +6,7 @@ using namespace std;
 
 Record::Record(){};
 
-Record::Record(string fName, string lName, int phoneNumber, int streetNum, string streetName, string cityName, string stateName, int zipCode)
+void Record::setRecord(string fName, string lName, int phoneNumber, int streetNum, string streetName, string cityName, string stateName, int zipCode)
 {
     firstName = fName;
     lastName = lName;

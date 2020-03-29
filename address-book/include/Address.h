@@ -15,4 +15,5 @@ class Address
 
     public:
     void setAddress(int streetNum, string streetName, string cityName, string stateName, int zipCode);
+    //void printAddress();
 };

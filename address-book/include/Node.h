@@ -10,4 +10,7 @@ class Node
     private:
     Record record;
     Node *next;
+
+    public:
+    Node();
 };

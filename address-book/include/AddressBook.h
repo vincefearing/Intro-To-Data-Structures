@@ -12,5 +12,10 @@ class AddressBook
 
     public:
     AddressBook();
-    void append();
+    void addContact();
+    //void removeContact();
+    //searchAddress();
+    //importData
+    //exportData
+
 };
