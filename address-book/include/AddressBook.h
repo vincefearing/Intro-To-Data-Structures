@@ -24,7 +24,7 @@ class AddressBook
 	public:
 	AddressBook();
 	void addContact(string fName, string lName, string phoneNumber, string streetNum, string streetName, string cityName, string stateName, string zipCode);
-	//void removeContact();
+	void removeContact();
 	//searchAddress();
 	void importData();
 	//exportData

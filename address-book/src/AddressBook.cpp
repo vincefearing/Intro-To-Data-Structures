@@ -59,4 +59,32 @@ void AddressBook::printData()
         current->record.printRecord();
         current = current->next;
     }
-}
+};
+
+void AddressBook::removeContact()
+{
+    string lookUp;
+    cout << "Please enter the number of the contact you would like to delete: " << endl;
+    cin >> lookUp;
+
+    Node *current = head;
+    Node *temp;
+
+    if(lookUp == head->record.getNumber())
+    {
+        temp = current;
+        head = current->next;
+    }
+    else
+    {
+        while(current->next->record.getNumber() != lookUp)
+        {
+            current = current->next;
+        }
+        temp = current->next;
+        current->next = current->next->next;
+    }
+    cout << "Before: " << temp->record.getNumber() << endl;
+    delete temp;
+    cout << "After: " << temp->record.getNumber() << endl;
+};

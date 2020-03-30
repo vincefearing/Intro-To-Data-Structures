@@ -16,3 +16,8 @@ void Record::printRecord()
 {
     cout << firstName << " " << lastName << " "; address.printAddress(); cout << " " << phoneNum << endl;
 }
+
+string Record::getNumber()
+{
+    return phoneNum;
+}
