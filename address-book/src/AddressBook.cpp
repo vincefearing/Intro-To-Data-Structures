@@ -12,6 +12,7 @@ AddressBook::AddressBook()
     tail = NULL;
 };
 
+//method for creating a new node/contact
 void AddressBook::addContact(string fName, string lName, string phoneNumber, string streetNum, string streetName, string cityName, string stateName, string zipCode)
 {
     Node* temp = new Node;
@@ -50,6 +51,7 @@ void AddressBook::importData()
     
 }
 
+//delete contact/node
 void AddressBook::printData()
 {
     Node* current = new Node;
@@ -61,12 +63,8 @@ void AddressBook::printData()
     }
 };
 
-void AddressBook::removeContact()
+void AddressBook::removeContact(string lookUp)
 {
-    string lookUp;
-    cout << "Please enter the number of the contact you would like to delete: " << endl;
-    cin >> lookUp;
-
     Node *current = head;
     Node *temp;
 
@@ -83,11 +81,17 @@ void AddressBook::removeContact()
         }
         temp = current->next;
         current->next = current->next->next;
+
+        //Pointing tail to correct position if end if deleted
         if(current->next == NULL)
         {
             tail = current;
         }
     }
     delete temp;
-    cout << "Tail: " << tail->record.getNumber() << endl;
 };
+
+void AddressBook::printLast()
+{
+    tail->record.printRecord();
+}
