@@ -83,8 +83,11 @@ void AddressBook::removeContact()
         }
         temp = current->next;
         current->next = current->next->next;
+        if(current->next == NULL)
+        {
+            tail = current;
+        }
     }
-    cout << "Before: " << temp->record.getNumber() << endl;
     delete temp;
-    cout << "After: " << temp->record.getNumber() << endl;
+    cout << "Tail: " << tail->record.getNumber() << endl;
 };
