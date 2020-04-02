@@ -12,21 +12,24 @@ void Menu::mainMenu(AddressBook & addressBook)
     while (quit == false)
     {
         cout << "Please choose a number from the list below \n\n"
-        << "1. Print Items \n"
-        << "2. Add Item \n"
-        << "3. Delete Item \n"
-        << "4. Quit" << endl;
+        << "1. Print Address Book \n"
+        << "2. Search Address \n"
+        << "3. Add Address \n"
+        << "4. Delete Item \n"
+        << "5. Quit" << endl;
         cin >> userChoice;
         
         switch (userChoice)
         {
         case 1 : addressBook.printData();
             break;
-        case 2 : addMenu(addressBook);
+        case 2 : searchMenu(addressBook);
             break;
-        case 3 : removeMenu(addressBook);
+        case 3 : addMenu(addressBook);
             break;
-        case 4 : quit = true;
+        case 4 : removeMenu(addressBook);
+            break;
+        case 5 : quit = true;
         }  
     }
 };
@@ -72,4 +75,13 @@ void Menu::removeMenu(AddressBook & addressBook)
     cout << "Please enter the phone number or last name of the contact you would like to delete: " << endl;
     cin >> lookUp;
     addressBook.removeContact(lookUp);
+};
+
+void Menu::searchMenu(AddressBook & addressBook)
+{
+    string lookUp;
+
+    cout << "Type in the number or last name of the persons address you are trying to find: " << endl;
+    cin >> lookUp;
+    addressBook.searchAddress(lookUp);
 };

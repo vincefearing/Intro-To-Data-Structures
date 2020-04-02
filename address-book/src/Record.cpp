@@ -21,3 +21,8 @@ string Record::getNumber()
 {
     return phoneNum;
 }
+
+string Record::getLastName()
+{
+    return lastName;
+}

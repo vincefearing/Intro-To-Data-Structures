@@ -95,3 +95,24 @@ void AddressBook::printLast()
 {
     tail->record.printRecord();
 }
+
+void AddressBook::searchAddress(string lookUp)
+{
+    Node *current = head;
+    bool found = false;
+
+    while(found == false)
+    {
+        if (current->record.getLastName() == lookUp || current->record.getNumber() == lookUp)
+        {
+            cout << "Record Found: " << endl;
+            current->record.printRecord();
+            found = true;
+        }
+        current = current->next;
+    }
+    if (found == false)
+    {
+        cout << "Sorry record was not found!" << endl;
+    }
+}
