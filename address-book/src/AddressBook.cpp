@@ -77,7 +77,7 @@ void AddressBook::printData()
 void AddressBook::removeContact(string lookUp)
 {
     Node *current = head;
-    Node *temp;
+    Node *temp = nullptr;
     bool found = false;
 
 
@@ -146,13 +146,20 @@ void AddressBook::deleteList()
     Node *current = head;
     Node *temp;
 
-    while(current->next != nullptr)
+    while(current != nullptr)
     {
-        
+        temp = current->next;
+        cout << "Deleting: ";
+        current->record.printRecord();
+        delete current;
+        current = temp;
     }
+    head = nullptr;
+    tail = nullptr;
 }
 
 AddressBook::~AddressBook()
 {
-
+    cout << "Destructor called" << endl;
+    deleteList();
 };
