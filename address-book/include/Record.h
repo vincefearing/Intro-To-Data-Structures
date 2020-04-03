@@ -16,6 +16,6 @@ class Record
     public:
     void setRecord(string fName, string lName, string phoneNumber, string streetNum, string streetName, string cityName, string stateName, string zipCode);
     void printRecord();
-    string getNumber();
-    string getLastName();
+    string getNumber() const;
+    string getLastName() const;
 };

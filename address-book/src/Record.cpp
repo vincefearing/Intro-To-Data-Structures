@@ -14,15 +14,17 @@ void Record::setRecord(string fName, string lName, string phoneNumber, string st
 
 void Record::printRecord()
 {
-    cout << firstName << " " << lastName << " "; address.printAddress(); cout << " " << phoneNum << endl;
+    cout << firstName << " " << lastName << " "; 
+    address.printAddress(); 
+    cout << " " << phoneNum << endl;
 }
 
-string Record::getNumber()
+string Record::getNumber() const
 {
     return phoneNum;
 }
 
-string Record::getLastName()
+string Record::getLastName() const
 {
     return lastName;
 }

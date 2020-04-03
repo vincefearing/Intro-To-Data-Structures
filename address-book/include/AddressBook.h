@@ -11,18 +11,10 @@ class AddressBook
 	private:
 	Node* head;
 	Node* tail;
-	ifstream inFile;
-	string firstName;
-	string lastName;
-	string stNum;
-	string stName;
-	string city;
-	string state;
-	string zip;
-	string phoneNum;
 
 	public:
 	AddressBook();
+	~AddressBook();
 	void addContact(string fName, string lName, string phoneNumber, string streetNum, string streetName, string cityName, string stateName, string zipCode);
 	void removeContact(string lookUp);
 	void searchAddress(string lookUp);
@@ -30,5 +22,6 @@ class AddressBook
 	//exportData
 	void printData();
 	void printLast();
+	void deleteList();
 
 };

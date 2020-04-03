@@ -8,8 +8,8 @@ using namespace std;
 //Constructor
 AddressBook::AddressBook()
 {
-    head = NULL;
-    tail = NULL;
+    head = nullptr; //nullptr
+    tail = nullptr;
 };
 
 //method for creating a new node/contact
@@ -17,13 +17,13 @@ void AddressBook::addContact(string fName, string lName, string phoneNumber, str
 {
     Node* temp = new Node;
     temp->record.setRecord(fName, lName, phoneNumber, streetNum, streetName, cityName, stateName, zipCode);
-    temp->next = NULL;
+    temp->next = nullptr;
 
-    if (head == NULL)
+    if (head == nullptr)
     {
         head = temp;
         tail = temp;
-        temp = NULL;
+        temp = nullptr;
     }
     else
     {
@@ -34,6 +34,16 @@ void AddressBook::addContact(string fName, string lName, string phoneNumber, str
 
 void AddressBook::importData()
 {
+    ifstream inFile;
+	string firstName;
+	string lastName;
+	string stNum;
+	string stName;
+	string city;
+	string state;
+	string zip;
+	string phoneNum;
+
     inFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/address-book/input.txt");
 
     //Testing if file opened properly
@@ -54,9 +64,10 @@ void AddressBook::importData()
 //delete contact/node
 void AddressBook::printData()
 {
-    Node* current = new Node;
-    current = head;
-    while (current != NULL)
+    //Node* current = new Node;
+    Node *current = head;
+    //current = head;
+    while (current != nullptr)
     {
         current->record.printRecord();
         current = current->next;
@@ -67,28 +78,38 @@ void AddressBook::removeContact(string lookUp)
 {
     Node *current = head;
     Node *temp;
+    bool found = false;
 
-    if(lookUp == head->record.getNumber())
+
+    //If head is node to be deleted
+    if(current != nullptr && current->record.getNumber() == lookUp)
+    {
+        head = current->next;
+        delete current;
+    }
+
+    while (current != nullptr && (current->record.getLastName() != lookUp && current->record.getNumber() != lookUp))
     {
         temp = current;
-        head = current->next;
+        current = current->next;
     }
-    else
-    {
-        while(current->next->record.getNumber() != lookUp)
-        {
-            current = current->next;
-        }
-        temp = current->next;
-        current->next = current->next->next;
 
-        //Pointing tail to correct position if end if deleted
-        if(current->next == NULL)
-        {
-            tail = current;
-        }
+    if(current == nullptr)
+    {
+        cout << "Record not found, and was not deleted" << endl;
+        return;
     }
-    delete temp;
+    //Creating new tail if old one was deleted
+    if(current->next == nullptr)
+    {
+        tail = temp;
+        cout << "New Tail: ";
+        tail->record.printRecord();
+    }
+    temp->next = current->next;
+    cout << "Record being deleted: ";
+    current->record.printRecord();
+    delete current;
 };
 
 void AddressBook::printLast()
@@ -100,19 +121,38 @@ void AddressBook::searchAddress(string lookUp)
 {
     Node *current = head;
     bool found = false;
+    int count = 1;
 
-    while(found == false)
+    while(current != nullptr && !found)
     {
         if (current->record.getLastName() == lookUp || current->record.getNumber() == lookUp)
         {
             cout << "Record Found: " << endl;
             current->record.printRecord();
             found = true;
-        }
+        } 
         current = current->next;
+        cout << count << endl;
+        count ++;
     }
-    if (found == false)
+    if (!found)
     {
         cout << "Sorry record was not found!" << endl;
     }
 }
+
+void AddressBook::deleteList()
+{
+    Node *current = head;
+    Node *temp;
+
+    while(current->next != nullptr)
+    {
+        
+    }
+}
+
+AddressBook::~AddressBook()
+{
+
+};
