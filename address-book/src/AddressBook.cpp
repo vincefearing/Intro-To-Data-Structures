@@ -15,6 +15,11 @@ AddressBook::AddressBook()
 //method for creating a new node/contact
 void AddressBook::addContact(string fName, string lName, string phoneNumber, string streetNum, string streetName, string cityName, string stateName, string zipCode)
 {
+    makeUpperCase(fName);
+    makeUpperCase(lName);
+    makeUpperCase(streetName);
+    makeUpperCase(cityName);
+    makeUpperCase(stateName);
     Node* temp = new (nothrow) Node;
     if(temp==0)
     {
@@ -65,15 +70,11 @@ void AddressBook::importData()
     {
         
         inFile >> firstName >> lastName >> stNum >> stName >> city >> state >> zip >> phoneNum;
-        makeUpperCase(firstName);
-        makeUpperCase(lastName);
-        makeUpperCase(stName);
-        makeUpperCase(city);
-        makeUpperCase(state);
         addContact(firstName, lastName, phoneNum, stNum, stName, city, state, zip);
         //cout << "Contact created" << endl;
     }
     
+    inFile.close();
 }
 
 //Printing address book
@@ -118,8 +119,6 @@ void AddressBook::removeContact(string lookUp)
     if(current->next == nullptr)
     {
         tail = temp;
-        cout << "New Tail: ";
-        tail->record.printRecord();
     }
     temp->next = current->next;
     cout << "Record being deleted: ";
@@ -187,6 +186,7 @@ void AddressBook::makeUpperCase(string & s)
     transform(s.begin(), s.end(), s.begin(), ::toupper);
 }
 
+//Export data to text file
 void AddressBook::exportData()
 {
     Node *current = head;
@@ -208,4 +208,6 @@ void AddressBook::exportData()
         outFile << current->record.getFullAddress() << endl;
         current = current->next;
     }
+
+    outFile.close();
 };

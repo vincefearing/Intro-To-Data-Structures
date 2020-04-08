@@ -19,7 +19,8 @@ void Menu::mainMenu(AddressBook & addressBook)
         << "5. Export Address Book \n"
         << "6. Quit" << endl;
         cin >> userChoice;
-        
+        validateInput(userChoice, 6);
+
         switch (userChoice)
         {
         case 1 : addressBook.printData();
@@ -88,3 +89,13 @@ void Menu::searchMenu(AddressBook & addressBook)
     cin >> lookUp;
     addressBook.searchAddress(lookUp);
 };
+
+void Menu::validateInput(int userChoice, int menuLength)
+{
+    if(!cin || (userChoice > menuLength || userChoice < 1))
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
+    }
+}

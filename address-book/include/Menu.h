@@ -12,4 +12,5 @@ class Menu
     void addMenu(AddressBook & addressBook);
     void removeMenu(AddressBook & addressBook);
     void searchMenu(AddressBook & addressBook);
+    void validateInput(int userChoice, int menulength);
 };
