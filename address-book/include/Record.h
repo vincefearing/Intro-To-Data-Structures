@@ -18,4 +18,5 @@ class Record
     void printRecord();
     string getNumber() const;
     string getLastName() const;
+    string getFullAddress();
 };

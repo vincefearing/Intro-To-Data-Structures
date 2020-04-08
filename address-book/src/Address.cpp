@@ -17,3 +17,24 @@ void Address::printAddress()
 {
     cout << strNum << " " << street << " " << city << ", " << state << " " << zip;
 }
+
+string Address::getStrNum()
+{
+    return strNum;
+}
+string Address::getStreet()
+{
+    return street;
+}
+string Address::getCity()
+{
+    return city;
+}
+string Address::getState()
+{
+    return state;
+}
+string Address::getZip()
+{
+    return zip;
+}

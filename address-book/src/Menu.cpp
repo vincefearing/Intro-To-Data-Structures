@@ -16,7 +16,8 @@ void Menu::mainMenu(AddressBook & addressBook)
         << "2. Search Address \n"
         << "3. Add Address \n"
         << "4. Delete Item \n"
-        << "5. Quit" << endl;
+        << "5. Export Address Book \n"
+        << "6. Quit" << endl;
         cin >> userChoice;
         
         switch (userChoice)
@@ -29,7 +30,9 @@ void Menu::mainMenu(AddressBook & addressBook)
             break;
         case 4 : removeMenu(addressBook);
             break;
-        case 5 : quit = true;
+        case 5 : addressBook.exportData();
+            break;
+        case 6 : quit = true;
         }  
     }
 };

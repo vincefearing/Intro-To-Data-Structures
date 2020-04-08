@@ -19,9 +19,10 @@ class AddressBook
 	void removeContact(string lookUp);
 	void searchAddress(string lookUp);
 	void importData();
-	//exportData
+	void exportData();
 	void printData();
 	void printLast();
 	void deleteList();
+	void makeUpperCase(string & s);
 
 };
