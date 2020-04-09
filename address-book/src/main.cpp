@@ -7,7 +7,6 @@
 #include <string>
 
 int main() {
-
     AddressBook adBook;
     adBook.importData();
     Menu menu;

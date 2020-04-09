@@ -98,10 +98,15 @@ void AddressBook::removeContact(string lookUp)
 
 
     //If head is node to be deleted
-    if(current != nullptr && current->record.getNumber() == lookUp)
+    if(current != nullptr && (current->record.getNumber() == lookUp || current->record.getLastName() == lookUp))
     {
         head = current->next;
+        cout << "Record being deleted: ";
+        current->record.printRecord();
         delete current;
+        cout << "New head: \n";
+        head->record.printRecord();
+        return;
     }
 
     while (current != nullptr && (current->record.getLastName() != lookUp && current->record.getNumber() != lookUp))

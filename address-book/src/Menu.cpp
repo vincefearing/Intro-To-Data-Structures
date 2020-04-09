@@ -78,6 +78,7 @@ void Menu::removeMenu(AddressBook & addressBook)
     string lookUp;
     cout << "Please enter the phone number or last name of the contact you would like to delete: " << endl;
     cin >> lookUp;
+    transform(lookUp.begin(), lookUp.end(), lookUp.begin(), ::toupper);
     addressBook.removeContact(lookUp);
 };
 
@@ -87,6 +88,7 @@ void Menu::searchMenu(AddressBook & addressBook)
 
     cout << "Type in the number or last name of the persons address you are trying to find: " << endl;
     cin >> lookUp;
+    transform(lookUp.begin(), lookUp.end(), lookUp.begin(), ::toupper);
     addressBook.searchAddress(lookUp);
 };
 
