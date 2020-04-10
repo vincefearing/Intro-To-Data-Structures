@@ -34,7 +34,7 @@ string Record::getLastName() const
     return lastName;
 }
 
-string Record::getFullAddress()
+string Record::getFullRecord()
 {
     string fullAddress;
     string formNum = phoneNum;

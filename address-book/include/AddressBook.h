@@ -1,6 +1,7 @@
 #pragma once
 #include "Node.h"
 #include "Record.h"
+#include "utility.h"
 #include <string>
 #include <fstream>
 
@@ -23,6 +24,7 @@ class AddressBook
 	void printData();
 	void printLast();
 	void deleteList();
-	void makeUpperCase(string & s);
+	/*int countRecursive(Node *p);
+	void getHead();*/
 
 };

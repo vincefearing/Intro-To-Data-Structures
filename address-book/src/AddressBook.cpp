@@ -21,7 +21,7 @@ void AddressBook::addContact(string fName, string lName, string phoneNumber, str
     makeUpperCase(cityName);
     makeUpperCase(stateName);
     Node* temp = new (nothrow) Node;
-    if(temp==0)
+    if(temp == nullptr)
     {
         cout << "Node Failed to allocate memory\n";
     }
@@ -101,10 +101,10 @@ void AddressBook::removeContact(string lookUp)
     if(current != nullptr && (current->record.getNumber() == lookUp || current->record.getLastName() == lookUp))
     {
         head = current->next;
-        cout << "Record being deleted: ";
+        cout << "\nRecord being deleted: \n";
         current->record.printRecord();
         delete current;
-        cout << "New head: \n";
+        cout << "\nNew head: \n";
         head->record.printRecord();
         return;
     }
@@ -117,7 +117,7 @@ void AddressBook::removeContact(string lookUp)
 
     if(current == nullptr)
     {
-        cout << "Record not found, and was not deleted" << endl;
+        cout << "\nRecord not found, and was not deleted" << endl;
         return;
     }
     //Creating new tail if old one was deleted
@@ -126,7 +126,7 @@ void AddressBook::removeContact(string lookUp)
         tail = temp;
     }
     temp->next = current->next;
-    cout << "Record being deleted: ";
+    cout << "\nRecord being deleted: \n";
     current->record.printRecord();
     delete current;
 };
@@ -148,7 +148,7 @@ void AddressBook::searchAddress(string lookUp)
     {
         if (current->record.getLastName() == lookUp || current->record.getNumber() == lookUp)
         {
-            cout << "Record Found: " << endl;
+            cout << "\nRecord Found: " << endl;
             current->record.printRecord();
             found = true;
         } 
@@ -156,7 +156,7 @@ void AddressBook::searchAddress(string lookUp)
     }
     if (!found)
     {
-        cout << "Sorry record was not found!" << endl;
+        cout << "\nSorry record was not found!" << endl;
     }
 }
 
@@ -169,7 +169,7 @@ void AddressBook::deleteList()
     while(current != nullptr)
     {
         temp = current->next;
-        cout << "Deleting: ";
+        cout << "\nDeleting: ";
         current->record.printRecord();
         delete current;
         current = temp;
@@ -181,15 +181,9 @@ void AddressBook::deleteList()
 //destructor
 AddressBook::~AddressBook()
 {
-    cout << "Destructor called" << endl;
+    cout << "\nDestructor called" << endl;
     deleteList();
 };
-
-//Function to convert a string to all upper case letters
-void AddressBook::makeUpperCase(string & s)
-{
-    transform(s.begin(), s.end(), s.begin(), ::toupper);
-}
 
 //Export data to text file
 void AddressBook::exportData()
@@ -200,17 +194,17 @@ void AddressBook::exportData()
     outFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/address-book/output.txt", ofstream::out);
     if (!outFile)
     {
-        cout << "ERROR: Problem opening file \n";
+        cout << "\nERROR: Problem opening file \n";
     }
     else
     {
-        cout << "Exporting data to file" << endl;
+        cout << "\nExporting data to file" << endl;
     }
     
 
     while(current != nullptr)
     {
-        outFile << current->record.getFullAddress() << endl;
+        outFile << current->record.getFullRecord() << endl;
         current = current->next;
     }
 

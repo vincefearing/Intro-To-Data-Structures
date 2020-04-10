@@ -11,7 +11,7 @@ void Menu::mainMenu(AddressBook & addressBook)
 
     while (quit == false)
     {
-        cout << "Please choose a number from the list below \n\n"
+        cout << "\nPlease choose a number from the list below \n\n"
         << "1. Print Address Book \n"
         << "2. Search Address \n"
         << "3. Add Address \n"
@@ -49,7 +49,7 @@ void Menu::addMenu(AddressBook & addressBook)
 	string zip;
 	string phoneNum;
 
-    cout << "Adding a new contact, what is the.. \n\n" << "First name? \n";
+    cout << "\nAdding a new contact, what is the.. \n\n" << "First name? \n";
     cin >> firstName;
     cout << "\nLast name?\n";
     cin >> lastName;
@@ -76,9 +76,9 @@ void Menu::addMenu(AddressBook & addressBook)
 void Menu::removeMenu(AddressBook & addressBook)
 {
     string lookUp;
-    cout << "Please enter the phone number or last name of the contact you would like to delete: " << endl;
+    cout << "\nPlease enter the phone number or last name of the contact you would like to delete: \n" << endl;
     cin >> lookUp;
-    transform(lookUp.begin(), lookUp.end(), lookUp.begin(), ::toupper);
+    makeUpperCase(lookUp);
     addressBook.removeContact(lookUp);
 };
 
@@ -86,9 +86,9 @@ void Menu::searchMenu(AddressBook & addressBook)
 {
     string lookUp;
 
-    cout << "Type in the number or last name of the persons address you are trying to find: " << endl;
+    cout << "\nType in the number or last name of the persons address you are trying to find: \n" << endl;
     cin >> lookUp;
-    transform(lookUp.begin(), lookUp.end(), lookUp.begin(), ::toupper);
+    makeUpperCase(lookUp);
     addressBook.searchAddress(lookUp);
 };
 
@@ -98,6 +98,6 @@ void Menu::validateInput(int userChoice, int menuLength)
     {
         cin.clear();
         cin.ignore(100, '\n');
-        cout << "Incorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
+        cout << "\nIncorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
     }
 }
