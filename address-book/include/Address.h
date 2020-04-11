@@ -1,4 +1,5 @@
-#pragma once
+#ifndef Address_h
+#define Address_h
 #include <string>
 #include <iostream>
 
@@ -22,3 +23,5 @@ class Address
     string getState();
     string getZip();
 };
+
+#endif

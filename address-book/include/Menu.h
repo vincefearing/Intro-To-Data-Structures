@@ -1,4 +1,5 @@
-#pragma once
+#ifndef Menu_h
+#define Menu_h
 #include <iostream>
 #include <string>
 #include "AddressBook.h"
@@ -15,3 +16,5 @@ class Menu
     void searchMenu(AddressBook & addressBook);
     void validateInput(int userChoice, int menulength);
 };
+
+#endif

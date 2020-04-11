@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AddressBook_h
+#define AddressBook_h
 #include "Node.h"
 #include "Record.h"
 #include "utility.h"
@@ -28,3 +29,5 @@ class AddressBook
 	void getHead();*/
 
 };
+
+#endif

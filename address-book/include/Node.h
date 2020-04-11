@@ -1,4 +1,5 @@
-#pragma once
+#ifndef Node_h
+#define Node_h
 #include "Record.h"
 #include <iostream>
 #include <string>
@@ -11,3 +12,5 @@ class Node
     Record record;
     Node *next;
 };
+
+#endif

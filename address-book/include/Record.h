@@ -1,4 +1,5 @@
-#pragma once
+#ifndef Record_h
+#define Record_h
 #include <iostream>
 #include <string>
 #include "Address.h"
@@ -20,3 +21,5 @@ class Record
     string getLastName() const;
     string getFullRecord();
 };
+
+#endif
