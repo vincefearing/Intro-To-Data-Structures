@@ -23,7 +23,7 @@ class CircLinkedList
 
     public:
     CircLinkedList();
-    void addItem(string newName, int newNum);
+    void append(string newName, int newNum);
     void removeItem();
     void deleteList();
     void searchList();

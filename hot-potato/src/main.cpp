@@ -1,5 +1,8 @@
 #include <iostream>
+#include "../include/CircLinkedList.h"
+#include "../include/Game.h"
 
 int main() {
-    std::cout << "Hello Easy C++ project!" << std::endl;
+    Game hotPot;
+    hotPot.importNames();
 }

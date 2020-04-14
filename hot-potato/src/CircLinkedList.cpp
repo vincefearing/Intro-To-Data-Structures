@@ -14,7 +14,7 @@ CircLinkedList::CircLinkedList()
     tail = nullptr;
 }
 
-void CircLinkedList::addItem(string newName, int newNum)
+void CircLinkedList::append(string newName, int newNum)
 {
     Node *temp = new (nothrow) Node;
     if (temp == nullptr)
@@ -25,21 +25,23 @@ void CircLinkedList::addItem(string newName, int newNum)
     {
         temp->name = newName;
         temp->num = newNum;
-        temp->next = head;
         if (head == nullptr)
         {
             head = temp;
             tail = temp;
             temp = nullptr;
+            cout << "New head =" << head->name << "\n New tail = " << tail->name << endl;
         }
         else
         {
+            temp->next = head;
             tail->next = temp;
+            temp->prev = tail;
             tail = temp;
             temp = nullptr;
-        }
-        
+            cout << "New head =" << head->name << "\n New tail = " << tail->name << "\n Tail next = " << tail->next->name  << "\n Tail prev = " << tail->prev->name << "\n" << endl;
     }
+        }
     
 
 }
