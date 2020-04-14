@@ -42,7 +42,7 @@ string Record::getFullRecord()
     formNum.insert(4, ")");
     formNum.insert(5, " ");
     formNum.insert(9, " ");
-    fullAddress = firstName + " " + lastName + "    " + address.getStrNum() + " " + address.getStreet() + " " + address.getCity() + ", " + address.getState() + address.getZip() + "    " + formNum;
+    fullAddress = firstName + " " + lastName + "    " + address.getStrNum() + " " + address.getStreet() + " " + address.getCity() + ", " + address.getState() + " " + address.getZip() + "    " + formNum;
 
     return fullAddress;
 }

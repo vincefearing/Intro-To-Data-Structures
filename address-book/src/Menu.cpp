@@ -86,7 +86,7 @@ void Menu::searchMenu(AddressBook & addressBook)
 {
     string lookUp;
 
-    cout << "\nType in the number or last name of the persons address you are trying to find: \n" << endl;
+    cout << "\nType in the phone number or last name of the persons address you are trying to find: \n" << endl;
     cin >> lookUp;
     makeUpperCase(lookUp);
     addressBook.searchAddress(lookUp);

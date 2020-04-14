@@ -58,7 +58,7 @@ void AddressBook::importData()
 	string zip;
 	string phoneNum;
 
-    inFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/address-book/input.txt");
+    inFile.open("/Volumes/Vindrive/college/spring-2020/data_structures/labs/address-book/input.txt");
 
     //Testing if file opened properly
     if (!inFile)
@@ -191,7 +191,7 @@ void AddressBook::exportData()
     Node *current = head;
     ofstream outFile;
 
-    outFile.open("/Volumes/Vindrive/College/Spring 2020/data_structures/labs/address-book/output.txt", ofstream::out);
+    outFile.open("/Volumes/Vindrive/college/spring-2020/data_structures/labs/address-book/output.txt", ofstream::out);
     if (!outFile)
     {
         cout << "\nERROR: Problem opening file \n";
