@@ -70,16 +70,18 @@ void CircLinkedList::removeItem(int position)
 
         if (current->num == position)
         {
-            if (current == tail)
-            {
-                tail = tail->prev;
-                tail->next = head;
-            }
+            
             temp = current;
             current = current->prev;
             current->next = temp->next;
-            current->prev = temp->prev;
+            if (temp == tail)
+            {
+                tail = current;
+                tail->next = head;
+            }
             delete temp;
+            temp = nullptr;
+            /*cout << "Head = " << head->name << "\n" << "Tail = " << tail->name << "\n" << "Tail prev = " << tail->prev->name << "\nTail next = " << tail->next->name << endl;*/
         }
         else
         {
@@ -113,10 +115,10 @@ void CircLinkedList::reversePrintList()
         return;
     }
 
-    do
+    while (current != nullptr)
     {
         cout << current->num << ". " << current->name << endl;
         current = current->prev;
-    } while (current != tail);
+    }
     
 }
