@@ -24,9 +24,11 @@ class CircLinkedList
     public:
     CircLinkedList();
     void append(string newName, int newNum);
-    void removeItem();
+    void removeItem(int position);
     void deleteList();
     void searchList();
+    void printList();
+    void reversePrintList();
 };
 
 #endif

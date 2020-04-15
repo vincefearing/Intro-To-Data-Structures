@@ -4,5 +4,5 @@
 
 int main() {
     Game hotPot;
-    hotPot.importNames();
+    hotPot.menu();
 }

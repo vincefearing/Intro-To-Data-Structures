@@ -15,6 +15,9 @@ class Game
 
     public:
     void importNames();
+    void menu();
+    void deleteItem();
+    void validateInput(int userChoice, int menuLength);
 };
 
 #endif
