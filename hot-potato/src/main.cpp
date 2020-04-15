@@ -1,8 +1,8 @@
 #include <iostream>
 #include "../include/CircLinkedList.h"
-#include "../include/Game.h"
+#include "../include/Menu.h"
 
 int main() {
-    Game hotPot;
-    hotPot.menu();
+    Menu menu;
+    menu.startMenu();
 }

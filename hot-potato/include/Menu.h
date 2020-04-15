@@ -1,5 +1,5 @@
-#ifndef Game_h
-#define Game_h
+#ifndef Menu_h
+#define Menu_h
 
 #include <iostream>
 #include <fstream>
@@ -8,16 +8,17 @@
 
 using namespace std;
 
-class Game
+class Menu
 {
     private:
     CircLinkedList people;
 
     public:
-    void importNames();
-    void menu();
+    void importNames(int amount);
+    void startMenu();
     void deleteItem();
     void validateInput(int userChoice, int menuLength);
+    void play();
 };
 
 #endif

@@ -30,7 +30,6 @@ void CircLinkedList::append(string newName, int newNum)
         {
             head = temp;
             tail = temp;
-            cout << "New head =" << head->name << "\n New tail = " << tail->name << endl;
         }
         else
         {
@@ -38,7 +37,6 @@ void CircLinkedList::append(string newName, int newNum)
             tail->next = temp;
             temp->prev = tail;
             tail = temp;
-            cout << "New head =" << head->name << "\n New tail = " << tail->name << "\n Tail next = " << tail->next->name  << "\n Tail prev = " << tail->prev->name << "\n" << endl;
         }
         temp = nullptr;
     }
@@ -58,7 +56,6 @@ void CircLinkedList::removeItem(int position)
         head->prev = nullptr;
         tail->next = head;
         delete temp;
-        cout << "New head = " << head->name << "\n" << "Tail = " << tail->name << "\n" << endl;
     }
     else
     {
@@ -70,7 +67,6 @@ void CircLinkedList::removeItem(int position)
 
         if (current->num == position)
         {
-            
             temp = current;
             current = current->prev;
             current->next = temp->next;
@@ -121,4 +117,26 @@ void CircLinkedList::reversePrintList()
         current = current->prev;
     }
     
+}
+
+void CircLinkedList::gameLoop(int passNum, int players)
+{
+    Node *current = head;
+    Node *temp;
+    while (players > 0)
+    {
+        for (int i = passNum; i <= 0; --i)
+        {
+            current = current->next;
+        }
+        temp = current;
+        current = current->next;
+        cout << temp->name << " at position " << temp->num << " is eliminated\n\n";
+        if (players == 1)
+        {
+            cout << temp->name << " is the winner!\n\n";
+        }
+        removeItem(temp->num);
+        players--;
+    }
 }

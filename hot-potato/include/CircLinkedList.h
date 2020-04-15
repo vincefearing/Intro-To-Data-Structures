@@ -29,6 +29,7 @@ class CircLinkedList
     void searchList();
     void printList();
     void reversePrintList();
+    void gameLoop(int passNum, int players);
 };
 
 #endif
