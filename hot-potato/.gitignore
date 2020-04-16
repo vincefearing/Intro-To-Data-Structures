@@ -2,3 +2,4 @@ bin
 .vscode
 Makefile
 lib
+._input.txt
