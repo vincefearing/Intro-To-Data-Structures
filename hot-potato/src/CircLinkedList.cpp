@@ -93,7 +93,7 @@ void CircLinkedList::removeItem(int position)
         temp->next = nullptr;
         delete temp;
     }
-    printList();
+    //printList();
 }
 
 void CircLinkedList::printList()
@@ -134,18 +134,24 @@ void CircLinkedList::gameLoop(int passNum, int players)
     Node *pos = head;
     Node *deleted;
     int removePos = 0;
+
+    if (players == 1)
+    {
+        cout << pos->name << "\n wins!" << endl;
+    }
+
     while (players > 1)
     {
-        cout << "\nStarting with " << pos->name << "\n\n";
+        //Passing the potato x number of times starting with current player
         for (int i = 0; i < passNum; ++i)
         {
             pos = pos->next;
-            cout << "Current = " << pos->name << "\n";
+            //cout << "Current = " << pos->name << "\n";
         }
         deleted = pos;
-        cout << deleted->name << " at position " << deleted->num << " is eliminated\n\n";
+        cout << deleted->name << "\n at position " << deleted->num << " is eliminated\n\n";
         pos = pos->next;
-        cout << "Current = " << pos->name << "\n";
+        //cout << "Current = " << pos->name << "\n";
         removePos = deleted->num;
         removeItem(removePos);
         players--;

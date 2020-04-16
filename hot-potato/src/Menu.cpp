@@ -14,7 +14,7 @@ void Menu::importNames(int amount)
     for (int i = 0; i < amount; ++i)
     {
         inFile >> name;
-        cout << "\nAdding " << name << " at place " << place << endl;
+        //cout << "\nAdding " << name << " at place " << place << endl;
         people.append(name, place);
         place++;
     }
