@@ -172,25 +172,16 @@ void CircLinkedList::deleteList()
     {
         return;
     }
-    if (head->next == head)
-    {
-        delete head;
-        cout << "\nDeleting: " << current->name << endl;
-        current = nullptr;
-    }
 
-    while (current != head && current != nullptr)
+    while (current != current->next)
     {
         temp = current->next;
         delete current;
         cout << "\nDeleting: " << current->name << endl;
         current = temp;
     }
-    head = nullptr;
-    tail = nullptr;
-    current = nullptr;
-    temp = nullptr;
-        
+    delete current;
+    cout << "\nDeleting: " << current->name << endl;
 }
 
 CircLinkedList::~CircLinkedList()
