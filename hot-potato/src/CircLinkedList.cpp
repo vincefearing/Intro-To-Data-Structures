@@ -161,3 +161,31 @@ void CircLinkedList::gameLoop(int passNum, int players)
         }
     }
 }
+
+//Delete list for destructor
+void CircLinkedList::deleteList()
+{
+    Node *current = head;
+    Node *temp = nullptr;
+
+    if (head == nullptr)
+    {
+        return;
+    }
+
+    while (current != nullptr)
+    {
+        temp = current->next;
+        cout << "\nDeleting: " << current->name << endl;
+        delete current;
+        current = temp;
+    }
+    head = nullptr;
+    tail = nullptr;
+        
+}
+
+CircLinkedList::~CircLinkedList()
+{
+    deleteList();
+}

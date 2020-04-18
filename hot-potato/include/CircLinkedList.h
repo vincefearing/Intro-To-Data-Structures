@@ -23,10 +23,10 @@ class CircLinkedList
 
     public:
     CircLinkedList();
+    ~CircLinkedList();
     void append(string newName, int newNum);
     void removeItem(int position);
     void deleteList();
-    void searchList();
     void printList();
     void reversePrintList();
     void gameLoop(int passNum, int players);
