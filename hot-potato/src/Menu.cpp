@@ -14,7 +14,7 @@ void Menu::importNames(int amount)
     for (int i = 0; i < amount; ++i)
     {
         inFile >> name;
-        //cout << "\nAdding " << name << " at place " << place << endl;
+        cout << place << " " << name << endl;
         people.append(name, place);
         place++;
     }
@@ -57,13 +57,25 @@ void Menu::play()
 {
     int playerCount = 0;
     int passes = 0;
-   
+
+        
         cout << "\nHow many players? Pick a number 1 - 10\n";
         cin >> playerCount;
+        if (playerCount < 1)
+        {
+            cout << "\nMinumum of 1 player required!" << endl;
+            return;
+        }
 
         cout << "\nHow many passes? Pick a number 0 - 20\n";
         cin >> passes;
+        if (passes < 0)
+        {
+            cout << "\nNumber of passes have to be greater than 0! Please try again." << endl;
+            return;
+        }
 
         importNames(playerCount);
         people.gameLoop(passes, playerCount);
+        people.~CircLinkedList();
 }

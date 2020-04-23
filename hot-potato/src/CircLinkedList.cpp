@@ -29,6 +29,7 @@ void CircLinkedList::append(string newName, int newNum)
         if (head == nullptr)
         {
             head = temp;
+            head->next = head;
             tail = temp;
         }
         else
@@ -45,7 +46,8 @@ void CircLinkedList::append(string newName, int newNum)
 //Remove given Node/item from the list
 void CircLinkedList::removeItem(int position)
 {
-    Node * current = nullptr;
+    //Node * current = nullptr;
+    Node * current = head;
     Node * temp = nullptr;
 
     if (head == nullptr)
@@ -55,7 +57,7 @@ void CircLinkedList::removeItem(int position)
 
     if (head->num == position)
     {
-        current = head;
+        //current = head;
         head = head->next;
         head->prev = nullptr;
         tail->next = head;
@@ -74,7 +76,7 @@ void CircLinkedList::removeItem(int position)
     }
     else
     {
-        current = head;
+        //current = head;
         while(current->num != position && current != tail)
         {
             current = current->next;
@@ -93,6 +95,8 @@ void CircLinkedList::removeItem(int position)
         temp->next = nullptr;
         delete temp;
     }
+    current = nullptr;
+    temp = nullptr;
     //printList();
 }
 
@@ -110,6 +114,7 @@ void CircLinkedList::printList()
         cout << current->num << ". " << current->name << endl;
         current = current->next;
     } while (current!= head);
+    current = nullptr;
 }
 
 void CircLinkedList::reversePrintList()
@@ -137,7 +142,7 @@ void CircLinkedList::gameLoop(int passNum, int players)
 
     if (players == 1)
     {
-        cout << pos->name << "\n wins!" << endl;
+        cout << pos->name << " wins!" << endl;
     }
 
     while (players > 1)
@@ -149,17 +154,20 @@ void CircLinkedList::gameLoop(int passNum, int players)
             //cout << "Current = " << pos->name << "\n";
         }
         deleted = pos;
-        cout << deleted->name << "\n at position " << deleted->num << " is eliminated\n\n";
+        cout << "\n" << deleted->name << "\nat position " << deleted->num << " is eliminated\n\n";
         pos = pos->next;
         //cout << "Current = " << pos->name << "\n";
         removePos = deleted->num;
         removeItem(removePos);
         players--;
+        printList();
         if (players == 1)
-        {
-            cout << pos->name << " is the winner!\n\n";
-        }
+    {
+        cout << "\n" << pos->name << " wins!" << endl;
     }
+    }
+    pos = nullptr;
+    deleted = nullptr;
 }
 
 //Delete list for destructor
@@ -180,11 +188,17 @@ void CircLinkedList::deleteList()
         cout << "\nDeleting: " << current->name << endl;
         current = temp;
     }
+    current->next = nullptr;
+    current->prev = nullptr;
     delete current;
     cout << "\nDeleting: " << current->name << endl;
+    current = nullptr;
+    temp = nullptr;
 }
 
 CircLinkedList::~CircLinkedList()
 {
     deleteList();
+    head = nullptr;
+    tail = nullptr;
 }
