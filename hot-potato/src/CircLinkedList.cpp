@@ -61,8 +61,6 @@ void CircLinkedList::removeItem(int position)
         head = head->next;
         head->prev = nullptr;
         tail->next = head;
-        current->next = nullptr;
-        current->prev = nullptr;
         delete current;
     }
     else if(tail->num == position)
@@ -70,8 +68,6 @@ void CircLinkedList::removeItem(int position)
         current = tail;
         tail = tail->prev;
         tail->next = head;
-        current->next = nullptr;
-        current->prev = nullptr;
         delete current;
     }
     else
@@ -91,8 +87,6 @@ void CircLinkedList::removeItem(int position)
         current->next = temp->next;
         current = temp->next;
         current->prev = temp->prev;
-        temp->prev = nullptr;
-        temp->next = nullptr;
         delete temp;
     }
     current = nullptr;
@@ -154,7 +148,7 @@ void CircLinkedList::gameLoop(int passNum, int players)
             //cout << "Current = " << pos->name << "\n";
         }
         deleted = pos;
-        cout << "\n" << deleted->name << "\nat position " << deleted->num << " is eliminated\n\n";
+        cout << "\n" << deleted->name << " at position " << deleted->num << " is eliminated\n\n";
         pos = pos->next;
         //cout << "Current = " << pos->name << "\n";
         removePos = deleted->num;
@@ -163,7 +157,7 @@ void CircLinkedList::gameLoop(int passNum, int players)
         printList();
         if (players == 1)
     {
-        cout << "\n" << pos->name << " wins!" << endl;
+        cout << "\n\n" << pos->name << " wins!" << endl;
     }
     }
     pos = nullptr;
@@ -188,8 +182,6 @@ void CircLinkedList::deleteList()
         cout << "\nDeleting: " << current->name << endl;
         current = temp;
     }
-    current->next = nullptr;
-    current->prev = nullptr;
     delete current;
     cout << "\nDeleting: " << current->name << endl;
     current = nullptr;
