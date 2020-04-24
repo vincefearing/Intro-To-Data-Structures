@@ -16,7 +16,6 @@ class Menu
     public:
     void importNames(int amount);
     void startMenu();
-    void deleteItem();
     void validateInput(int userChoice, int menuLength);
     void play();
 };

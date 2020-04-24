@@ -178,12 +178,12 @@ void CircLinkedList::deleteList()
     while (current != current->next)
     {
         temp = current->next;
-        delete current;
         cout << "\nDeleting: " << current->name << endl;
+        delete current;
         current = temp;
     }
-    delete current;
     cout << "\nDeleting: " << current->name << endl;
+    delete current;
     current = nullptr;
     temp = nullptr;
 }
