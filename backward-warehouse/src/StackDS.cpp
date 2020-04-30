@@ -2,8 +2,8 @@
 
 using namespace std;
 
-template <typename U>
-StackDS::Node<U>::Node(U dataIn) //goal: try and figure out how templates work for nested loops
+template <typename T>
+StackDS<T>::Node::Node(T dataIn)
 {
     data = dataIn;
     next = nullptr;

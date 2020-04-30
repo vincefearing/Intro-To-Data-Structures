@@ -10,13 +10,12 @@ template <typename T>
 class StackDS
 {
     private:
-    template <typename U>
     class Node
     {
         public:
-        U data;
+        T data;
         Node *next;
-        Node(U dataIn);
+        Node(T dataIn);
     };
     Node<T> *head;
 };
