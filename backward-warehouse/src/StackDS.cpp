@@ -48,3 +48,20 @@ void StackDS<T>::push(T dataIn)
         temp = nullptr;
     }
 }
+
+//Returns and deletes item off of the top of the stack
+template <typename T>
+T StackDS<T>::pop()
+{
+    Node *temp = head;
+    T tempData = head->data;
+    if (head == nullptr)
+    {
+        cout << "Stack is empty" << endl;
+        return;
+    }
+    head = temp->next;
+    delete temp;
+    temp = nullptr;
+
+}

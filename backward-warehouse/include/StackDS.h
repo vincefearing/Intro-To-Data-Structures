@@ -24,7 +24,7 @@ class StackDS
     public:
     StackDS();
     void push(T dataIn);
-    //void pop();
+    T pop();
 };
 
 #endif
