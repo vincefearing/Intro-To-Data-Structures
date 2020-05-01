@@ -1,3 +1,4 @@
+//Stack data structure using a linked list and template for reusability.
 #ifndef StackDS_h
 #define StackDS_h
 
@@ -15,9 +16,15 @@ class StackDS
         public:
         T data;
         Node *next;
-        Node(T dataIn);
+        Node();
+        void setData(T inData);
     };
-    Node<T> *head;
+    Node *head;
+
+    public:
+    StackDS();
+    void push(T dataIn);
+    //void pop();
 };
 
 #endif
