@@ -6,7 +6,13 @@
 
 class Warehouse
 {
+    private:
+    StackDS <Order> Orders;
+    StackDS <Delivery> Deliveries;
+    int numShipped = 0;
 
+    public:
+    void addDelivery();
 };
 
 
