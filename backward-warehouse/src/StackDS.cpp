@@ -36,7 +36,7 @@ void StackDS<T>::push(T dataIn)
     {
         temp.setData(dataIn);
 
-        if (head = nullptr)
+        if (head == nullptr)
         {
             head = temp;
         }
@@ -64,4 +64,32 @@ T StackDS<T>::pop()
     delete temp;
     temp = nullptr;
 
+}
+
+template <typename T>
+void StackDS<T>::deleteStack()
+{
+    Node *temp = head;
+
+    if (head == nullptr)
+    {
+        return;
+    }
+
+    while (temp != nullptr)
+    {
+        head = temp->next;
+        cout << "Deleting Node" << endl;
+        delete temp;
+        temp = head;
+    }
+
+    temp = nullptr;
+}
+
+template <typename T>
+StackDS<T>::~StackDS()
+{
+    deleteStack();
+    head = nullptr;
 }

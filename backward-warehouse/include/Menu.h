@@ -13,6 +13,7 @@ class Menu
     public:
     void mainMenu();
     void validateInput(int userChoice, int menuLength);
+    void deliveryMenu();
 };
 
 #endif

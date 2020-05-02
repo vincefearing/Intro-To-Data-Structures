@@ -12,11 +12,11 @@ void Menu::mainMenu()
         << "2. Add order\n"
         << "3. Quit" << endl;
         cin >> userChoice;
-        validateInput(userChoice, 2);
+        validateInput(userChoice, 3);
 
         switch (userChoice)
         {
-        case 1 : ;
+        case 1 : deliveryMenu();
             break;
         case 2 : //addOrder
             break;
@@ -34,4 +34,19 @@ void Menu::validateInput(int userChoice, int menuLength)
         cin.ignore(100, '\n');
         cout << "\nIncorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
     }
+}
+
+//Menu to handle placing deliveries
+void Menu::deliveryMenu()
+{
+    int widgetCount = 0;
+    float widgetPrice = 0;
+
+    cout << "Number of widgets? \n\n";
+    cin >> widgetCount;
+    cout << "Price per widget?\n\n";
+    cin >> widgetPrice;
+
+    warehouse.addDelivery(widgetCount, widgetPrice);
+
 }
