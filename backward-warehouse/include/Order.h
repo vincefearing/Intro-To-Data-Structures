@@ -9,10 +9,12 @@ class Order
     int ID = 0;
     int amountOrdered = 0;
     int amountShipped = 0;
-    float pricePerWidget = 0;
 
     public:
-    void setOrder(int id, int amount, float price);
+    void setOrder(int id, int amount);
+    int getID();
+    int getAmountOrdered();
+    int getAmountShipped();
 };
 
 #endif

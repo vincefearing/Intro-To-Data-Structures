@@ -7,8 +7,8 @@
 class Warehouse
 {
     private:
-    StackDS <Order> Orders;
-    StackDS <Delivery> Deliveries;
+    StackDS <Order> orders;
+    StackDS <Delivery> deliveries;
     int numShipped = 0;
     Delivery tempDelivery;
     Order tempOrder;
@@ -16,7 +16,7 @@ class Warehouse
     public:
     void addDelivery(int amount, float price);
     //void addOrder();
-    //void processShipment();
+    void processShipment();
 };
 
 

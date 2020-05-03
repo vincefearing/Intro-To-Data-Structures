@@ -93,3 +93,17 @@ StackDS<T>::~StackDS()
     deleteStack();
     head = nullptr;
 }
+
+template <typename T>
+bool StackDS<T>::isEmpty()
+{
+    if (head = nullptr)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
+}

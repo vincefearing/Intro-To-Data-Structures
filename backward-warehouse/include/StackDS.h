@@ -25,6 +25,7 @@ class StackDS
     StackDS();
     void push(T dataIn);
     T pop();
+    bool isEmpty();
     void deleteStack();
     ~StackDS();
 };

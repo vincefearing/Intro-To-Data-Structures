@@ -8,9 +8,13 @@ class Delivery
     private:
     int quantity = 0;
     float pricePerUnit = 0;
+    int ID = 0;
 
     public:
     void setDelivery(int amount, float price);
+    int getQuantity();
+    float getPricePerUnit();
+    int getID();
 
 };
 
