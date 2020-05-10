@@ -1,17 +1,19 @@
 #include "../include/Order.h"
 
+using namespace std;
+
 void Order::setOrder(int id, int amount)
 {
     ID = id;
     amountOrdered = amount;
 }
 
-int Order::getAmountOrdered()
+int Order::getAmountOrdered() const
 {
     return amountOrdered;
 }
 
-int Order::getAmountShipped()
+int Order::getAmountShipped() const
 {
     return amountShipped;
 }

@@ -12,9 +12,9 @@ class Order
 
     public:
     void setOrder(int id, int amount);
-    int getID();
-    int getAmountOrdered();
-    int getAmountShipped();
+    int getID() const;
+    int getAmountOrdered() const;
+    int getAmountShipped() const;
 };
 
 #endif

@@ -6,12 +6,12 @@ void Delivery::setDelivery(int amount, float price)
     pricePerUnit = price;
 }
 
-int Delivery::getQuantity()
+int Delivery::getQuantity() const
 {
     return quantity;
 }
 
-float Delivery::getPricePerUnit()
+float Delivery::getPricePerUnit() const
 {
     return pricePerUnit;
 }

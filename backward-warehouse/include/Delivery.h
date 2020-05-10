@@ -12,8 +12,8 @@ class Delivery
 
     public:
     void setDelivery(int amount, float price);
-    int getQuantity();
-    float getPricePerUnit();
+    int getQuantity() const;
+    float getPricePerUnit() const;
     int getID();
 
 };

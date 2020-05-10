@@ -1,4 +1,9 @@
 #include "../include/Warehouse.h"
+#include "../include/StackDS.h"
+#include "../include/Order.h"
+#include "../include/Delivery.h"
+
+using namespace std;
 
 void Warehouse::addDelivery(int amount, float price)
 {
