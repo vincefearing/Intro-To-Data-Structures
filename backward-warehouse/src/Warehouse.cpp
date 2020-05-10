@@ -7,18 +7,27 @@ using namespace std;
 
 void Warehouse::addDelivery(int amount, float price)
 {
-    tempDelivery.setDelivery(amount, price);
-    deliveries.push(tempDelivery);
+    curDelivery.setDelivery(amount, price, deliveryNum);
+    deliveries.push(curDelivery);
     processShipment();
-
+    deliveryNum ++;
 }
 
 void Warehouse::processShipment()
 {
-    while(orders.isEmpty() == false && deliveries.isEmpty() == false)
+
+    if (orders.isEmpty() == false)
     {
-        tempOrder = orders.pop();
-        tempDelivery = deliveries.pop();
-        
+        curOrder = orders.pop();
     }
+    if (deliveries.isEmpty() == false)
+    {
+        curDelivery = deliveries.pop();
+    }
+
+    while (curOrder.getAmountOrdered() != 0 && curDelivery.getQuantity() != 0)
+    {
+
+    }
+
 }

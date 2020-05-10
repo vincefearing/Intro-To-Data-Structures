@@ -2,10 +2,15 @@
 
 using namespace std;
 
-void Order::setOrder(int id, int amount)
+void Order::setOrder(int orderNumber, int amount)
 {
-    ID = id;
+    orderNum = orderNumber;
     amountOrdered = amount;
+}
+
+void Order::setOrdersRemaining(int remaining)
+{
+    ordersRemaining = remaining;
 }
 
 int Order::getAmountOrdered() const
@@ -13,7 +18,7 @@ int Order::getAmountOrdered() const
     return amountOrdered;
 }
 
-int Order::getAmountShipped() const
+int Order::getordersRemaining() const
 {
-    return amountShipped;
+    return ordersRemaining;
 }

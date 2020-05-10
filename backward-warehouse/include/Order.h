@@ -6,15 +6,16 @@ using namespace std;
 class Order
 {
     private:
-    int ID = 0;
+    int orderNum = 0;
     int amountOrdered = 0;
-    int amountShipped = 0;
+    int ordersRemaining = 0;
 
     public:
-    void setOrder(int id, int amount);
-    int getID() const;
+    void setOrder(int orderNumber, int amount);
+    void setOrdersRemaining(int remaining);
+    int getOrderNum() const;
     int getAmountOrdered() const;
-    int getAmountShipped() const;
+    int getordersRemaining() const;
 };
 
 #endif

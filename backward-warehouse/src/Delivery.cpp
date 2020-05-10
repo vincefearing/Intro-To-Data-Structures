@@ -1,6 +1,6 @@
 #include "../include/Delivery.h"
 
-void Delivery::setDelivery(int amount, float price)
+void Delivery::setDelivery(int amount, float price, int deliveryNumber)
 {
     quantity = amount;
     pricePerUnit = price;
@@ -16,7 +16,7 @@ float Delivery::getPricePerUnit() const
     return pricePerUnit;
 }
 
-int Delivery::getID()
+int Delivery::getDeliveryNum()
 {
-    return ID;
+    return deliveryNum;
 }

@@ -10,8 +10,11 @@ class Warehouse
     StackDS <Order> orders;
     StackDS <Delivery> deliveries;
     int numShipped = 0;
-    Delivery tempDelivery;
-    Order tempOrder;
+    Delivery curDelivery;
+    Order curOrder;
+    int orderNum = 1;
+    int deliveryNum = 1;
+    Shipment curShipment;
 
     public:
     void addDelivery(int amount, float price);
