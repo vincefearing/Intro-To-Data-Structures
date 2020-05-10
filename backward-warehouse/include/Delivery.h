@@ -19,7 +19,8 @@ class Delivery
     int getQuantity() const;
     float getPricePerUnit() const;
     int getDeliveryNum();
-
+    void setShipData(Shipment shipment);
+    void setQuantity(int qty);
 };
 
 #endif

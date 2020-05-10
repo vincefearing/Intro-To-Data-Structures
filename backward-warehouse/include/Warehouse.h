@@ -10,6 +10,7 @@ class Warehouse
     StackDS <Order> orders;
     StackDS <Delivery> deliveries;
     int numShipped = 0;
+    int numStocked = 0;
     Delivery curDelivery;
     Order curOrder;
     int orderNum = 1;

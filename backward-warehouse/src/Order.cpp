@@ -6,6 +6,8 @@ void Order::setOrder(int orderNumber, int amount)
 {
     orderNum = orderNumber;
     amountOrdered = amount;
+    ordersRemaining = amountOrdered;
+    
 }
 
 void Order::setOrdersRemaining(int remaining)

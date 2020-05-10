@@ -11,19 +11,15 @@ class Shipment
 {
     private:
     int deliveryID;
-    int deliveryQty;
     int orderID;
-    int orderQty;
     int qtyShipped;
     float unitPrice;
     float cost;
-    float salesPrice;
-    float profit;
+    float total;
 
     public:
     Shipment();
-    void loadShipment(Delivery del, Order ord);
-    void printOrderReport();
+    void loadShipment(int delId, int ordID, int quantShipped, float price, float houseCost, float custTotal);
     void printDeliveryReport();
 };
 

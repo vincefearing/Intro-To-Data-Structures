@@ -2,37 +2,26 @@
 
 Shipment::Shipment()
 {
-    int deliveryID = 0;
-    int deliveryQty = 0;
-    int orderID = 0;
-    int orderQty = 0;
-    int qtyShipped = 0;
-    float unitPrice = 0;
-    float cost = 0;
-    float salesPrice = 0;
-    float profit = 0;
-
+    deliveryID = 0;
+    orderID = 0;
+    qtyShipped = 0;
+    unitPrice = 0;
+    cost = 0;
+    total = 0;
 }
 
-void Shipment::loadShipment(Delivery del, Order ord)
+void Shipment::loadShipment(int delId, int ordID, int quantShipped, float price, float houseCost, float custTotal)
 {
-    deliveryID = del.getDeliveryNum();
-    deliveryQty = del.getQuantity();
-    orderID = ord.getOrderNum();
-    orderQty = ord.getAmountOrdered();
-    unitPrice = del.getPricePerUnit();
-    salesPrice = unitPrice + (unitPrice * 0.50);
-    while (deliveryQty != 0 && qtyShipped <= orderQty)
-    {
-        qtyShipped ++;
-        deliveryQty --;
-    }
-    cost = unitPrice * qtyShipped;
-    profit = salesPrice * qtyShipped;
+   deliveryID = delId;
+   orderID = ordID;
+   qtyShipped = quantShipped;
+   unitPrice = price;
+   cost = houseCost;
+   total = custTotal;
 }
 
-void Shipment::printOrderReport()
+void Shipment:: printDeliveryReport()
 {
-    
+    cout << "Delivery #: " << deliveryID << "\nQty Shipped: " << qtyShipped << "\nUnit Price: " << unitPrice << "\nCost: " << cost << "\nTotal: " << total;
 }
 

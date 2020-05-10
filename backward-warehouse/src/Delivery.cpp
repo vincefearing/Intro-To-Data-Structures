@@ -20,3 +20,13 @@ int Delivery::getDeliveryNum()
 {
     return deliveryNum;
 }
+
+void Delivery::setShipData(Shipment shipment)
+{
+    shipData.push_back(shipment);
+}
+
+void Delivery::setQuantity(int qty)
+{
+    quantity = qty;
+}
