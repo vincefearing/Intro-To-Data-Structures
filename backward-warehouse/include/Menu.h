@@ -14,6 +14,7 @@ class Menu
     void mainMenu();
     void validateInput(int userChoice, int menuLength);
     void deliveryMenu();
+    void orderMenu();
 };
 
 #endif

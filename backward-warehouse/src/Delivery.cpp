@@ -16,7 +16,7 @@ float Delivery::getPricePerUnit() const
     return pricePerUnit;
 }
 
-int Delivery::getDeliveryNum()
+int Delivery::getDeliveryNum() const
 {
     return deliveryNum;
 }

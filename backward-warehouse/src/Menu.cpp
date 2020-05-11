@@ -18,7 +18,7 @@ void Menu::mainMenu()
         {
         case 1 : deliveryMenu();
             break;
-        case 2 : //addOrder
+        case 2 : orderMenu();
             break;
         case 3 : quit = true;
             break;
@@ -48,5 +48,14 @@ void Menu::deliveryMenu()
     cin >> widgetPrice;
 
     warehouse.addDelivery(widgetCount, widgetPrice);
+}
 
+void Menu::orderMenu()
+{
+    int amountOrdered = 0;
+
+    cout << "How many widgets would you like to order?\n\n";
+    cin >> amountOrdered;
+
+    warehouse.addOrder(amountOrdered);
 }

@@ -19,7 +19,7 @@ class Warehouse
 
     public:
     void addDelivery(int amount, float price);
-    //void addOrder();
+    void addOrder(int amount);
     void processShipment();
 };
 

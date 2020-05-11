@@ -17,6 +17,17 @@ void Warehouse::addDelivery(int amount, float price)
     }
 }
 
+void Warehouse::addOrder(int amount)
+{
+    curOrder.setOrder(orderNum, amount);
+    orderNum++;
+    orders.push(curOrder);
+    if (deliveries.isEmpty() == false)
+    {
+        processShipment();
+    }
+}
+
 void Warehouse::processShipment()
 {
     int deliveryID = 0;
@@ -31,7 +42,7 @@ void Warehouse::processShipment()
     float salesPrice = 0;
     float profit = 0;
     float total = 0;
-    
+
     while (deliveries.isEmpty() == false && orders.isEmpty() == false)
     {
         curOrder = orders.pop();
