@@ -1,4 +1,5 @@
 #include "../include/Delivery.h"
+#include <iostream>
 
 void Delivery::setDelivery(int amount, float price, int deliveryNumber)
 {

@@ -1,9 +1,8 @@
 #ifndef Shipment_h
 #define Shipment_h
-#include "Delivery.h"
-#include "Order.h"
 #include <iostream>
 #include <string>
+#include <iostream>
 
 using namespace std;
 

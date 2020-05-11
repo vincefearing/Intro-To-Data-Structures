@@ -3,6 +3,11 @@
 #include "StackDS.h"
 #include "Delivery.h"
 #include "Order.h"
+#include "Shipment.h"
+#include <vector>
+#include <iostream>
+
+using namespace std;
 
 class Warehouse
 {

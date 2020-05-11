@@ -4,6 +4,7 @@ NOTE - templates must be defined within header file (no .cpp file)
 */
 #ifndef StackDS_h
 #define StackDS_h
+#include <iostream>
 
 #include <iostream>
 #include <string>
