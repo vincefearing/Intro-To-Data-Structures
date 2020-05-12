@@ -22,6 +22,7 @@ class Delivery
     int getDeliveryNum() const;
     void setShipData(Shipment shipment);
     void setQuantity(int qty);
+    void printShipData();
 };
 
 #endif

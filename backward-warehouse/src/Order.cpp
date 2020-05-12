@@ -24,3 +24,8 @@ int Order::getordersRemaining() const
 {
     return ordersRemaining;
 }
+
+int Order::getOrderNum() const
+{
+    return orderNum;
+}
