@@ -63,6 +63,7 @@ void Warehouse::processShipment()
             qtyShipped ++;
             deliveryQty --;
             numStocked --;
+            numShipped++;
         }
         cost = unitPrice * qtyShipped;
         total = salesPrice * qtyShipped;
@@ -70,8 +71,30 @@ void Warehouse::processShipment()
         qtyRemaining = orderQty - qtyShipped;
         curShipment.loadShipment(deliveryID, orderID, qtyShipped, unitPrice, cost, total);
 
+        
+
         if (qtyRemaining == 0 || deliveryQty == 0)
         {
+            if (qtyRemaining !=0 && deliveryQty == 0 && deliveries.isEmpty() == false)
+            {
+                while (deliveries.isEmpty() == false)
+                {
+                    deliveryQty = curDelivery.getQuantity();
+                    unitPrice = curDelivery.getPricePerUnit();
+                    salesPrice = unitPrice + (unitPrice * 0.50);
+                    while (deliveryQty != 0 && qtyShipped < orderQty)
+                    {
+                        qtyShipped ++;
+                        deliveryQty --;
+                        numStocked --;
+                        numShipped++;
+                    }
+                    cost += unitPrice * qtyShipped;
+                    total += salesPrice * qtyShipped;
+                    profit += total - cost;
+                }
+                cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << qtyShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
+            }
             cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << qtyShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
             curDelivery.setShipData(curShipment);
             if (qtyRemaining != 0)

@@ -35,6 +35,8 @@ void Delivery::setQuantity(int qty)
 
 void Delivery::printShipData()
 {
+    cout << "Delivery #" << deliveryNum << " depleted. \n" << "Orders processed with delivery: \n" << endl;
+
     for (int i = 0; i <= shipData.size() -1; ++i)
     {
         shipData.at(i).printDeliveryReport();
