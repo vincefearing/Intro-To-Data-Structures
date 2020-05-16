@@ -23,6 +23,7 @@ class Delivery
     void setShipData(Shipment shipment);
     void setQuantity(int qty);
     void printShipData();
+    void printDelivery();
 };
 
 #endif

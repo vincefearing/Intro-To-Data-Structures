@@ -2,6 +2,7 @@
 #include "../include/StackDS.h"
 #include "../include/Order.h"
 #include "../include/Delivery.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -34,6 +35,7 @@ void Warehouse::processShipment()
 {
     Delivery curDelivery;
     Order curOrder;
+    Shipment curShipment;
     int deliveryID = 0;
     int deliveryQty = 0;
     int orderID = 0;
@@ -59,12 +61,15 @@ void Warehouse::processShipment()
         orderQty = curOrder.getordersRemaining();
         unitPrice = curDelivery.getPricePerUnit();
         salesPrice = unitPrice + (unitPrice * 0.50);
+        //qtyRemaining = originalQuantity;
+        qtyRemaining = curOrder.getordersRemaining();
         while (deliveryQty != 0 && qtyShipped < orderQty)
         {
             qtyShipped ++;
             deliveryQty --;
             numStocked --;
             numShipped++;
+            qtyRemaining --;
         }
         totalShipped = qtyShipped;
         cost = unitPrice * qtyShipped;
@@ -73,62 +78,53 @@ void Warehouse::processShipment()
         qtyRemaining = orderQty - qtyShipped;
         curShipment.loadShipment(deliveryID, orderID, qtyShipped, unitPrice, cost, total);
         curOrder.setShipData(curShipment);
+        curOrder.setOrder(qtyShipped, qtyRemaining, cost, total, profit);
 
-        //if (qtyRemaining == 0 || deliveryQty == 0)
-        //{
-            if (qtyRemaining !=0 && deliveryQty == 0 && deliveries.isEmpty() == false)
+        if (qtyRemaining !=0 && deliveryQty == 0 && deliveries.isEmpty() == false)
+        {
+            while (deliveries.isEmpty() == false)
             {
-                while (deliveries.isEmpty() == false)
+                curDelivery = deliveries.pop();
+                deliveryQty = curDelivery.getQuantity();
+                qtyShipped = 0;
+                unitPrice = curDelivery.getPricePerUnit();
+                deliveryID = curDelivery.getDeliveryNum();
+                salesPrice = unitPrice + (unitPrice * 0.50);
+                while (deliveryQty != 0 && qtyRemaining != 0 /*qtyShipped < orderQty*/)
                 {
-                    curDelivery = deliveries.pop();
-                    deliveryQty = curDelivery.getQuantity();
-                    qtyShipped = 0;
-                    unitPrice = curDelivery.getPricePerUnit();
-                    deliveryID = curDelivery.getDeliveryNum();
-                    salesPrice = unitPrice + (unitPrice * 0.50);
-                    while (deliveryQty != 0 && qtyShipped < orderQty)
-                    {
-                        qtyShipped ++;
-                        deliveryQty --;
-                        numStocked --;
-                        numShipped++;
-                        qtyRemaining --;
-                    }
-                    totalShipped += qtyShipped;
-                    cost += unitPrice * qtyShipped;
-                    total += salesPrice * qtyShipped;
-                    profit += total - cost;
-                    //qtyRemaining = originalQuantity - (originalQuantity - qtyShipped);
-                    curShipment.loadShipment(deliveryID, orderID, qtyShipped, unitPrice, cost, total);
-                    curOrder.setShipData(curShipment);
+                    qtyShipped ++;
+                    deliveryQty --;
+                    numStocked --;
+                    numShipped++;
+                    qtyRemaining --;
                 }
-                cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << totalShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
-                curOrder.printShipData();
+                totalShipped += qtyShipped;
+                cost += unitPrice * qtyShipped;
+                total += salesPrice * qtyShipped;
+                profit += total - cost;
+                curShipment.loadShipment(deliveryID, orderID, qtyShipped, unitPrice, cost, total);
+                curOrder.setShipData(curShipment);
+                curOrder.setOrder(qtyShipped, qtyRemaining, cost, total, profit);
+            }
+            cout << fixed << showpoint;
+            cout << setprecision(2);
+            cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << totalShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
+            curOrder.printShipData();
 
-                if (qtyRemaining != 0)
-                {
-                    curOrder.setOrdersRemaining(qtyRemaining);
-                    orders.push(curOrder);
-                }
-            }
-            else if (deliveryQty == 0)
+            if (qtyRemaining != 0)
             {
-                cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << qtyShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
-                curOrder.printShipData();
-                if (qtyRemaining != 0)
-                {
-                    curOrder.setOrdersRemaining(qtyRemaining);
-                    orders.push(curOrder);
-                }
+                orders.push(curOrder);
             }
-        //}
-        /*else if (qtyRemaining == 0)
+        }
+        else //if (qtyRemaining == 0)
         {
             cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << qtyShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
             curOrder.printShipData();
-            curOrder.setOrdersRemaining(qtyRemaining);
-            orders.push(curOrder);
-        }*/
+            if (qtyRemaining != 0)
+            {
+                orders.push(curOrder);
+            }
+        }
 
         if (deliveryQty != 0)
         {
@@ -136,12 +132,5 @@ void Warehouse::processShipment()
             deliveries.push(curDelivery);
         }
     }
-    
-
-    /*while (curOrder.getAmountOrdered() != 0 && curDelivery.getQuantity() != 0)
-    {
-        curShipment.loadShipment(curDelivery, curOrder);
-
-    }*/
 
 }

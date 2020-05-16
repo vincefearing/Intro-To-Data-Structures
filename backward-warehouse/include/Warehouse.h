@@ -6,6 +6,7 @@
 #include "Shipment.h"
 #include <vector>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -18,7 +19,6 @@ class Warehouse
     int numStocked = 0;
     int orderNum = 1;
     int deliveryNum = 1;
-    Shipment curShipment;
 
     public:
     void addDelivery(int amount, float price);

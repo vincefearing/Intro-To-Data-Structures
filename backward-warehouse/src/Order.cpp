@@ -15,6 +15,16 @@ void Order::setOrdersRemaining(int remaining)
     ordersRemaining = remaining;
 }
 
+void Order::setOrder(int shipped, int remaining, float cost, float total, float prof)
+{
+    qtyShipped = shipped;
+    ordersRemaining = remaining;
+    costWareHoue += cost;
+    costCustomer += total;
+    profit = prof;
+
+}
+
 int Order::getAmountOrdered() const
 {
     return amountOrdered;
