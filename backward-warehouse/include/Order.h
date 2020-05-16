@@ -3,6 +3,7 @@
 #include "Shipment.h"
 #include <vector>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -27,6 +28,7 @@ class Order
     int getordersRemaining() const;
     void setShipData(Shipment shipment);
     void printShipData();
+    void printOrderInfo();
 };
 
 #endif

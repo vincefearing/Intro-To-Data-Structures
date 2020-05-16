@@ -106,9 +106,10 @@ void Warehouse::processShipment()
                 curOrder.setShipData(curShipment);
                 curOrder.setOrder(qtyShipped, qtyRemaining, cost, total, profit);
             }
-            cout << fixed << showpoint;
+            /*cout << fixed << showpoint;
             cout << setprecision(2);
-            cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << totalShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
+            cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << totalShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;*/
+            curOrder.printOrderInfo();
             curOrder.printShipData();
 
             if (qtyRemaining != 0)
@@ -116,9 +117,10 @@ void Warehouse::processShipment()
                 orders.push(curOrder);
             }
         }
-        else //if (qtyRemaining == 0)
+        else
         {
-            cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << qtyShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;
+            curOrder.printOrderInfo();
+            /*cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << qtyShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;*/
             curOrder.printShipData();
             if (qtyRemaining != 0)
             {
