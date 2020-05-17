@@ -23,22 +23,7 @@ int Delivery::getDeliveryNum() const
     return deliveryNum;
 }
 
-void Delivery::setShipData(Shipment shipment)
-{
-    shipData.push_back(shipment);
-}
-
 void Delivery::setQuantity(int qty)
 {
     quantity = qty;
-}
-
-void Delivery::printShipData()
-{
-    cout << "Delivery #" << deliveryNum << " depleted. \n" << "Orders processed with delivery: \n" << endl;
-
-    for (int i = 0; i <= shipData.size() -1; ++i)
-    {
-        shipData.at(i).printDeliveryReport();
-    }
 }

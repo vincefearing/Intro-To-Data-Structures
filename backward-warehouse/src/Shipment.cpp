@@ -22,6 +22,8 @@ void Shipment::loadShipment(int delId, int ordID, int quantShipped, float price,
 
 void Shipment:: printDeliveryReport()
 {
-    cout << "\nDelivery #: " << deliveryID << "\nQty Shipped: " << qtyShipped << "\nUnit Price: " << unitPrice << "\nCost: " << cost << "\nTotal: " << total;
+    int a = 30;
+    cout << fixed << showpoint;
+    cout << setprecision(2);
+    cout << right << setw(a) << deliveryID << right << setw(a) << qtyShipped << right << setw(a) << unitPrice << right << setw(a) << cost << right << setw(a) << total;
 }
-

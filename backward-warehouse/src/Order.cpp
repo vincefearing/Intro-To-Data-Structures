@@ -47,7 +47,12 @@ void Order::setShipData(Shipment shipment)
 
 void Order::printShipData()
 {
-    cout << "\nDeliveries associated with order: " << endl;
+    cout << fixed << showpoint;
+    cout << setprecision(2);
+    int a = 30;
+
+    cout << "\nShipment details\n" << endl;
+    cout << right << setw(a) << "Delivery#" << right << setw(a) << "Qty Shipped" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Customer Cost" << endl;
 
     for (int i = 0; i <= shipData.size() -1; ++i)
     {
@@ -57,7 +62,7 @@ void Order::printShipData()
 
 void Order::printOrderInfo()
 {
-    int a = 40;
+    int a = 30;
     int b = 10;
     cout << fixed << showpoint;
     cout << setprecision(2);

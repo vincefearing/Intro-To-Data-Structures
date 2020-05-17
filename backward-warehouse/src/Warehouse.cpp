@@ -61,7 +61,6 @@ void Warehouse::processShipment()
         orderQty = curOrder.getordersRemaining();
         unitPrice = curDelivery.getPricePerUnit();
         salesPrice = unitPrice + (unitPrice * 0.50);
-        //qtyRemaining = originalQuantity;
         qtyRemaining = curOrder.getordersRemaining();
         while (deliveryQty != 0 && qtyShipped < orderQty)
         {
@@ -106,9 +105,7 @@ void Warehouse::processShipment()
                 curOrder.setShipData(curShipment);
                 curOrder.setOrder(qtyShipped, qtyRemaining, cost, total, profit);
             }
-            /*cout << fixed << showpoint;
-            cout << setprecision(2);
-            cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << totalShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;*/
+            
             curOrder.printOrderInfo();
             curOrder.printShipData();
 
@@ -120,7 +117,6 @@ void Warehouse::processShipment()
         else
         {
             curOrder.printOrderInfo();
-            /*cout << "\nOrder Number: " << orderID << "\nQty Ordered: " << originalQuantity << "\nQty Shipped: " << qtyShipped << "\nOutstanding items: " << qtyRemaining << "\nCost: " << cost << "\nTotal Charged: " << total << "\nProfit: " << profit << endl;*/
             curOrder.printShipData();
             if (qtyRemaining != 0)
             {
@@ -134,5 +130,46 @@ void Warehouse::processShipment()
             deliveries.push(curDelivery);
         }
     }
+}
 
+void Warehouse::printDeliveryInfo()
+{
+    Delivery curDelivery;
+    int a = 20;
+    int b = 6;
+    
+    /*cout << fixed << showpoint;
+    cout << setprecision(2);*/
+    cout << left << setw(a) << "\nDelivery#" << left << setw(a) << "Amount" << setw(a) << "Price" << endl;
+
+    while (deliveries.isEmpty() == false)
+    {
+        curDelivery = deliveries.pop();
+        cout << left << setw(a) << curDelivery.getDeliveryNum() << left << setw(a) << curDelivery.getQuantity() << fixed << showpoint << setprecision(2) << setw(a) << curDelivery.getPricePerUnit() << endl;
+        tempDeliveries.push(curDelivery);
+    }
+
+    while (tempDeliveries.isEmpty() == false)
+    {
+        curDelivery = tempDeliveries.pop();
+        deliveries.push(curDelivery);
+    }
+}
+
+void Warehouse::printOrderInfo()
+{
+    Order curOrder;
+    
+    while (orders.isEmpty() == false)
+    {
+        curOrder = orders.pop();
+        curOrder.printOrderInfo();
+        tempOrders.push(curOrder);
+    }
+
+    while (tempOrders.isEmpty() == false)
+    {
+        curOrder = tempOrders.pop();
+        orders.push(curOrder);
+    }
 }

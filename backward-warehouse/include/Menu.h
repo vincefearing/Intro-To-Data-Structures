@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include "Warehouse.h"
+#include "Delivery.h"
+#include "Order.h"
 
 using namespace std;
 

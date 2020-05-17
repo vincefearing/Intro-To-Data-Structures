@@ -10,9 +10,11 @@ void Menu::mainMenu()
         cout << "\nWelcome!\n\n"
         << "1. Add delivery\n"
         << "2. Add order\n"
-        << "3. Quit" << endl;
+        << "3. Print delivery info\n"
+        << "4. Print order info\n"
+        << "5. Quit" << endl;
         cin >> userChoice;
-        validateInput(userChoice, 3);
+        validateInput(userChoice, 5);
 
         switch (userChoice)
         {
@@ -20,7 +22,11 @@ void Menu::mainMenu()
             break;
         case 2 : orderMenu();
             break;
-        case 3 : quit = true;
+        case 3 : warehouse.printDeliveryInfo();
+            break;
+        case 4 : warehouse.printOrderInfo();
+            break;    
+        case 5 : quit = true;
             break;
         }  
     }
@@ -42,7 +48,7 @@ void Menu::deliveryMenu()
     int widgetCount = 0;
     float widgetPrice = 0;
 
-    cout << "Number of widgets? \n\n";
+    cout << "Number of widgets?\n\n";
     cin >> widgetCount;
     cout << "Price per widget?\n\n";
     cin >> widgetPrice;

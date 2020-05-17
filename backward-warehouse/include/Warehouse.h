@@ -15,6 +15,8 @@ class Warehouse
     private:
     StackDS <Order> orders;
     StackDS <Delivery> deliveries;
+    StackDS <Order> tempOrders;
+    StackDS <Delivery> tempDeliveries;
     int numShipped = 0;
     int numStocked = 0;
     int orderNum = 1;
@@ -24,6 +26,8 @@ class Warehouse
     void addDelivery(int amount, float price);
     void addOrder(int amount);
     void processShipment();
+    void printDeliveryInfo();
+    void printOrderInfo();
 };
 
 
