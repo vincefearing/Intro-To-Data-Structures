@@ -21,7 +21,7 @@ void Order::setOrder(int shipped, int remaining, float cost, float total, float 
     ordersRemaining = remaining;
     costWareHoue += cost;
     costCustomer += total;
-    profit = prof;
+    profit += prof;
 
 }
 
@@ -49,7 +49,7 @@ void Order::printShipData()
 {
     cout << fixed << showpoint;
     cout << setprecision(2);
-    int a = 30;
+    int a = 20;
 
     cout << "\nShipment details\n" << endl;
     cout << right << setw(a) << "Delivery#" << right << setw(a) << "Qty Shipped" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Customer Cost" << endl;
