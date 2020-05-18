@@ -52,6 +52,7 @@ void Warehouse::processShipment()
 
     while (deliveries.isEmpty() == false && orders.isEmpty() == false)
     {
+        qtyShipped = 0;
         curOrder = orders.pop();
         curDelivery = deliveries.pop();
         deliveryID = curDelivery.getDeliveryNum();

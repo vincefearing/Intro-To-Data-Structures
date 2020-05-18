@@ -52,7 +52,7 @@ void Order::printShipData()
     int a = 20;
 
     cout << "\nShipment details\n" << endl;
-    cout << right << setw(a) << "Delivery#" << right << setw(a) << "Qty Shipped" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Customer Cost" << endl;
+    cout << right << setw(a) << "Delivery#" << right << setw(a) << "Qty Shipped" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Customer Cost" << right << setw(a) << "Customer Cost" << endl;
 
     for (int i = 0; i <= shipData.size() -1; ++i)
     {
