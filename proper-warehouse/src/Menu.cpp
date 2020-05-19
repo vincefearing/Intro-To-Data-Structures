@@ -50,8 +50,22 @@ void Menu::deliveryMenu()
 
     cout << "Number of widgets?\n\n";
     cin >> widgetCount;
+    if (widgetCount <= 0)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "\nError: Delivery amount can't be less than 1.\n";
+        return; 
+    }
     cout << "Price per widget?\n\n";
     cin >> widgetPrice;
+    if (widgetPrice <= 0)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "\nError: Price cannot be zero or less.\n";
+        return; 
+    }
 
     warehouse.addDelivery(widgetCount, widgetPrice);
 }
@@ -62,6 +76,13 @@ void Menu::orderMenu()
 
     cout << "How many widgets would you like to order?\n\n";
     cin >> amountOrdered;
+    if (amountOrdered <= 0)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "\nError: Order number can't be less than 1" << endl;
+        return; 
+    }
 
     warehouse.addOrder(amountOrdered);
 }
