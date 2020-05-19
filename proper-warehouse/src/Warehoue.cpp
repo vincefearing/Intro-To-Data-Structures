@@ -119,6 +119,10 @@ void Warehouse::processShipment()
                 curShipment.loadShipment(deliveryID, orderID, qtyShipped, unitPrice, cost, total);
                 curOrder.setShipData(curShipment);
                 curOrder.setOrder(qtyShipped, qtyRemaining, cost, total, profit);
+                if (deliveryQty == 0 && deliveries.isEmpty() == false)
+                {
+                    deliveries.pop();
+                }
             }
             
             curOrder.printOrderInfo();
