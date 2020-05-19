@@ -158,6 +158,10 @@ void Warehouse::printDeliveryInfo()
         curDelivery = tempDeliveries.pop();
         deliveries.push(curDelivery);
     }
+    if (deliveries.isEmpty() == true)
+    {
+        cout << "\nNo deliveries in stock" << endl;
+    }
 }
 
 void Warehouse::printOrderInfo()
@@ -175,5 +179,10 @@ void Warehouse::printOrderInfo()
     {
         curOrder = tempOrders.pop();
         orders.push(curOrder);
+    }
+
+    if (orders.isEmpty() == true)
+    {
+        cout << "\nNo current orders." << endl;
     }
 }
