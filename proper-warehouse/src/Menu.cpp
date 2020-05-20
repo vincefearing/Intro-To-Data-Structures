@@ -24,7 +24,7 @@ void Menu::mainMenu()
             break;
         case 3 : warehouse.printDeliveryInfo();
             break;
-        case 4 : warehouse.printOrderInfo();
+        case 4 : warehouse.printOrderStack();
             break;    
         case 5 : quit = true;
             break;

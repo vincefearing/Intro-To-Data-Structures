@@ -218,3 +218,31 @@ void Warehouse::printOrderInfo()
         cout << "\nNo current orders." << endl;
     }
 }
+
+void Warehouse::printOrderStack()
+{
+    Order curOrder;
+
+    int a = 20;
+
+    cout << fixed << showpoint << setprecision(2);
+    cout << "\n";
+    cout << right << setw(a) << "Order#" << right << setw(a) << "Amount Ordered" << right << setw(a) << "Qty Remaining" << endl;
+    
+    while (orders.isEmpty() == false)
+    {
+        curOrder = orders.pop();
+        cout << right << setw(a) << curOrder.getOrderNum() << right << setw(a) << curOrder.getAmountOrdered() << right << setw(a) << curOrder.getordersRemaining() << endl;
+        tempOrders.push(curOrder);
+    }
+
+    while (tempOrders.isEmpty() == false)
+    {
+        curOrder = tempOrders.pop();
+        orders.push(curOrder);
+    }
+    if (orders.isEmpty() == true)
+    {
+        cout << "\nNo current orders." << endl;
+    }
+}

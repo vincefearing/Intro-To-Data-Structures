@@ -28,6 +28,7 @@ class Warehouse
     void processShipment();
     void printDeliveryInfo();
     void printOrderInfo();
+    void printOrderStack();
 };
 
 

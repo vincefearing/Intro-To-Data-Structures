@@ -66,7 +66,7 @@ void Order::printOrderInfo()
     int b = 10;
     cout << fixed << showpoint;
     cout << setprecision(2);
-    cout << setw(a) << left << "\nOrder Number: " << right << setw(b) << orderNum << left << setw(a) << "\nQty to be ordered: " << right << setw(b) << amountOrdered << left << setw(a) << "\nQty shipped this shipment: " << right << setw(b) << setw(b) << qtyShipped << left << setw(a) << "\nQty to be shipped: " << right << setw(b) << ordersRemaining << left << setw(a) << "\nTotal cost to Warehouse: " << right << setw(b) << costWareHoue << left << setw(a) << "\nTotal cost to customer: " << right << setw(b) << costCustomer << left << setw(a) << "\nProfit this shipment: " << right << setw(b) << profit << endl;
+    cout << setw(a) << left << "\nOrder Number: " << right << setw(b) << orderNum << left << setw(a) << "\nQty ordered: " << right << setw(b) << amountOrdered << left << setw(a) << "\nQty shipped this shipment: " << right << setw(b) << setw(b) << qtyShipped << left << setw(a) << "\nQty to be shipped: " << right << setw(b) << ordersRemaining << left << setw(a) << "\nTotal cost to Warehouse: " << right << setw(b) << costWareHoue << left << setw(a) << "\nTotal cost to customer: " << right << setw(b) << costCustomer << left << setw(a) << "\nProfit this shipment: " << right << setw(b) << profit << endl;
 }
 
 void Order::resetOrder()
