@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//Adds deliveries from menu and processes them if possible
 void Warehouse::addDelivery(int amount, float price)
 {
     Delivery curDelivery;
@@ -19,6 +20,7 @@ void Warehouse::addDelivery(int amount, float price)
     }
 }
 
+//Adds deliveries from menu and processes them if possible
 void Warehouse::addOrder(int amount)
 {
     Order curOrder;
@@ -31,6 +33,7 @@ void Warehouse::addOrder(int amount)
     }
 }
 
+//Main processing method for taking in a shipping orders and deliveries
 void Warehouse::processShipment()
 {
     Delivery curDelivery;
@@ -170,6 +173,7 @@ void Warehouse::processShipment()
     }
 }
 
+//Method to print deliveries on hand
 void Warehouse::printDeliveryInfo()
 {
     Delivery curDelivery;
@@ -197,6 +201,7 @@ void Warehouse::printDeliveryInfo()
     }
 }
 
+//Method to print current shipment information
 void Warehouse::printOrderInfo()
 {
     Order curOrder;
@@ -219,6 +224,7 @@ void Warehouse::printOrderInfo()
     }
 }
 
+//Method for printing orders on hand
 void Warehouse::printOrderStack()
 {
     Order curOrder;
