@@ -29,6 +29,7 @@ class Order
     void setShipData(Shipment shipment);
     void printShipData();
     void printOrderInfo();
+    void resetOrder();
 };
 
 #endif

@@ -130,6 +130,7 @@ void Warehouse::processShipment()
 
             if (qtyRemaining != 0)
             {
+                curOrder.resetOrder();
                 orders.front() = curOrder;
                 //orders.push(curOrder);
             }
@@ -145,6 +146,7 @@ void Warehouse::processShipment()
             curOrder.printShipData();
             if (qtyRemaining != 0)
             {
+                curOrder.resetOrder();
                 orders.front() = curOrder;
                 //orders.push(curOrder);
             }
