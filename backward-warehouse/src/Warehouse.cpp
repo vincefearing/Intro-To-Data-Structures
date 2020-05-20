@@ -102,7 +102,7 @@ void Warehouse::processShipment()
                     numShipped++;
                     qtyRemaining --;
                 }
-                totalShipped += qtyShipped;
+                totalShipped = qtyShipped;
                 cost = unitPrice * qtyShipped; // was +=
                 total = salesPrice * qtyShipped; // was +=
                 profit = total - cost; // was +=
@@ -116,6 +116,7 @@ void Warehouse::processShipment()
 
             if (qtyRemaining != 0)
             {
+                curOrder.resetOrder();
                 orders.push(curOrder);
             }
         }
@@ -125,6 +126,7 @@ void Warehouse::processShipment()
             curOrder.printShipData();
             if (qtyRemaining != 0)
             {
+                curOrder.resetOrder();
                 orders.push(curOrder);
             }
         }
@@ -141,7 +143,6 @@ void Warehouse::printDeliveryInfo()
 {
     Delivery curDelivery;
     int a = 20;
-    int b = 6;
     
     cout << "\n";
     cout << left << setw(a) << "Delivery#" << left << setw(a) << "Amount" << right << setw(a) << "Price" << endl;
