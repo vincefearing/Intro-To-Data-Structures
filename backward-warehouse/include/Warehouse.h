@@ -30,6 +30,7 @@ class Warehouse
     void printOrderInfo();
     void printShipData();
     void emptyShipData();
+    void printOrderStack();
 };
 
 
