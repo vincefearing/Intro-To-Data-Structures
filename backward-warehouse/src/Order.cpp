@@ -45,6 +45,7 @@ void Order::setShipData(Shipment shipment)
     shipData.push_back(shipment);
 }
 
+//Prints information when shipment is processed
 void Order::printShipData()
 {
     cout << fixed << showpoint;
@@ -60,6 +61,7 @@ void Order::printShipData()
     }
 }
 
+//Prints what is currently on hand in the order stack
 void Order::printOrderInfo()
 {
     int a = 30;
@@ -69,6 +71,7 @@ void Order::printOrderInfo()
     cout << setw(a) << left << "\nOrder Number: " << right << setw(b) << orderNum << left << setw(a) << "\nQty ordered: " << right << setw(b) << amountOrdered << left << setw(a) << "\nQty shipped this shipment: " << right << setw(b) << setw(b) << qtyShipped << left << setw(a) << "\nQty to be shipped: " << right << setw(b) << ordersRemaining << left << setw(a) << "\nTotal cost to Warehouse: " << right << setw(b) << costWareHoue << left << setw(a) << "\nTotal cost to customer: " << right << setw(b) << costCustomer << left << setw(a) << "\nProfit this shipment: " << right << setw(b) << profit << endl;
 }
 
+//Utility function to reset values after order has been filled for current shipment and there is more to be filled later
 void Order::resetOrder()
 {
     qtyShipped = 0;

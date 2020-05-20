@@ -15,6 +15,23 @@ int main() {
 }
 
 /*
+
+--- Test Plan --- 
+
+- Make sure memory is being allocated properly and deleted
+- Check math for totals and costs
+- Input orders and deliveries in various ways to check if values are being processed and stored properly
+    - Input several deliveries first than orders
+    - Input several orders first and than deliveries
+    - Input one big order and several small deliveries
+    - Input one big delivery and several small orders
+- make sure output is clear and nice looking
+- look for redundancies in code
+- Test printing delivery and order stacks
+- Make sure application meets all specifications laid out in assignment description
+
+--- Output ---
+
 Welcome!
 
 1. Add delivery

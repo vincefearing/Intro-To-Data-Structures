@@ -1,5 +1,6 @@
 #include "../include/Menu.h"
 
+//Application user interface
 void Menu::mainMenu()
 {
     int userChoice = 0;
@@ -32,6 +33,7 @@ void Menu::mainMenu()
     }
 };
 
+//This validates menu choice input
 void Menu::validateInput(int userChoice, int menuLength)
 {
     if(!cin || (userChoice > menuLength || userChoice < 1))
@@ -70,6 +72,7 @@ void Menu::deliveryMenu()
     warehouse.addDelivery(widgetCount, widgetPrice);
 }
 
+//Sub menu to handle placing orders
 void Menu::orderMenu()
 {
     int amountOrdered = 0;

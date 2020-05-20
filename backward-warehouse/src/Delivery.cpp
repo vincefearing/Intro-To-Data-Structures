@@ -1,6 +1,7 @@
 #include "../include/Delivery.h"
 #include <iostream>
 
+// Load function
 void Delivery::setDelivery(int amount, float price, int deliveryNumber)
 {
     quantity = amount;
