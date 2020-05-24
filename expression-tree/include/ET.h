@@ -1,6 +1,8 @@
 #ifndef ET_h
 #define ET_h
 #include <iostream>
+#include "Utility.h"
+#include <string>
 
 using namespace std;
 
@@ -16,9 +18,11 @@ class ET
         Node();
         void setData(char inData);
     };
+    Node *root;
 
     public:
-    void newNode(char data);
+    void createTree(string expression);
+    ET();
 };
 
 #endif
