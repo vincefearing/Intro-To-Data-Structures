@@ -118,3 +118,39 @@ void ET::preOrder(Node * root)
         preOrder(root->right);
     }
 }
+
+void ET::deleteTree()
+{
+    deleteTree(root);
+}
+
+void ET::deleteTree(Node * root)
+{
+    if (root != nullptr)
+    {
+        deleteTree(root->left);
+        deleteTree(root->right);
+        delete root;
+        //cout << "DELETING NODE" << endl;
+    }
+    
+}
+
+ET::~ET()
+{
+    deleteTree();
+    root = nullptr;
+}
+
+bool ET::isEmpty()
+{
+    if (root == nullptr)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
+}

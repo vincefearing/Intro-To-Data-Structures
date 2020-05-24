@@ -6,6 +6,7 @@
 #include "Utility.h"
 #include <vector>
 #include <fstream>
+#include <queue>
 
 using namespace std;
 
@@ -13,11 +14,12 @@ class Menu
 {
     private:
     ET expressionTree;
-    vector <string> expressions;
+    queue <string> expressions;
 
     public:
     void mainMenu();
     void importExpressions();
+    void loadExpression();
 
 };
 

@@ -29,6 +29,10 @@ class ET
     void postOrder(Node * root);
     void preOrder();
     void preOrder(Node * root);
+    void deleteTree();
+    void deleteTree(Node * root);
+    bool isEmpty();
+    ~ET();
 };
 
 #endif
