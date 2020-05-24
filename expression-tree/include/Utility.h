@@ -12,5 +12,6 @@ int prec(char c);
 string infixToPostfix(string exp);
 bool isOperand(char c);
 bool isOperator(char c);
+void validateInput(int userChoice, int menuLength);
 
 #endif

@@ -27,47 +27,94 @@ ET::ET()
 void ET::createTree(string postFixExp)
 {
     StackDS <Node*> expStack;
-    Node *t, *t1, *t2;
+    Node *t1, *t2;
 
     for (int i = 0; i < postFixExp.size(); ++i)
     {
         if (isOperand(postFixExp.at(i)))
         {
-            t = new (nothrow) Node;
-            if (t == nullptr)
+            root = new (nothrow) Node;
+            if (root == nullptr)
             {
                 cout << "Node failed to allocate memory" << endl;
                 return;
             }
             else
             {
-                t->data = postFixExp.at(i);
-                expStack.push(t);
+                root->data = postFixExp.at(i);
+                expStack.push(root);
             }
         }
         else
         {
-            t = new (nothrow) Node;
-            if (t == nullptr)
+            root = new (nothrow) Node;
+            if (root == nullptr)
             {
                 cout << "Node failed to allocate memory" << endl;
                 return;
             }
             else
             {
+                root->data = postFixExp.at(i);
                 t1 = expStack.peek();
                 expStack.pop();
                 t2 = expStack.peek();
                 expStack.pop();
 
-                t->right = t1;
-                t->left = t2;
+                root->right = t1;
+                root->left = t2;
 
-                expStack.push(t);
+                expStack.push(root);
             }
         }
     }
-    t = expStack.peek();
+    root = expStack.peek();
     expStack.pop();
-    root = t;
+}
+
+void ET::inOrder(Node * root)
+{
+    if(root != nullptr)
+    {
+        cout << "(";
+        inOrder(root->left);
+        cout << root->data;
+        inOrder(root->right);
+        cout << ")";
+    }
+}
+
+void ET::inOrder()
+{
+    inOrder(root);
+}
+
+void ET::postOrder()
+{
+    postOrder(root);
+}
+
+void ET::postOrder(Node * root)
+{
+    if (root != nullptr)
+    {
+        postOrder(root->left);
+        postOrder(root->right);
+        cout << root->data << "\t";
+    }
+}
+
+void ET::preOrder()
+{
+    preOrder(root);
+}
+
+void ET::preOrder(Node * root)
+{
+    if (root != nullptr)
+    {
+        cout << root->data << "\t";
+        preOrder(root->left);
+        preOrder(root->right);
+    }
 }

@@ -23,6 +23,12 @@ class ET
     public:
     void createTree(string expression);
     ET();
+    void inOrder();
+    void inOrder(Node * root);
+    void postOrder();
+    void postOrder(Node * root);
+    void preOrder();
+    void preOrder(Node * root);
 };
 
 #endif

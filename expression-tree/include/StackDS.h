@@ -30,6 +30,7 @@ class StackDS
     void push(T dataIn);
     T pop();
     T peek();
+    T &front();
     bool isEmpty();
     void deleteStack();
     ~StackDS();
@@ -142,6 +143,12 @@ bool StackDS<T>::isEmpty()
 
 template <typename T>
 T StackDS<T>::peek()
+{
+    return head->data;
+}
+
+template <typename T>
+T &StackDS<T>::front()
 {
     return head->data;
 }
