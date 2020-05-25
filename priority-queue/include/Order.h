@@ -20,7 +20,12 @@ class Order
 
     public:
     Order();
-    int getPriority();
+    int getPriority() const;
+    int getQtyOrdered() const;
+    int getOrderNumber() const;
+    void setTestData(int orderID, int importance);
+    void setPriority(int importance);
+    void setQtyOrdered(int qty);
 };
 
 #endif

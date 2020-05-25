@@ -4,7 +4,7 @@ PriorityQueue::PriorityQueue()
 {
     heapSize = 0;
     capacity = 50;
-    heapArray[capacity];
+    heapArray = new Order[50];
 }
 
 //returns index of left child
@@ -30,12 +30,12 @@ int PriorityQueue::parent(int i)
 
 void PriorityQueue::swap(Order *x, Order *y)
 {
-    Order *temp = x;
-    x = y;
-    y = temp;
+    Order temp = *x;
+    *x = *y;
+    *y = temp;
 }
 
-void PriorityQueue::insert(Order newOrder)
+void PriorityQueue::enqueue(Order newOrder)
 {
     if (heapSize == capacity)
     {
@@ -45,43 +45,83 @@ void PriorityQueue::insert(Order newOrder)
     heapSize ++;
     int i = heapSize - 1;
     heapArray[i] = newOrder;
+    reHeapUp(0, heapSize -1);
 
-    while (i != 0 && parent(heapArray[i].getPriority()) > heapArray[i].getPriority())
+    /*while (i != 0 && heapArray[parent(i)].getPriority() > heapArray[i].getPriority())
     {
         swap(&heapArray[i], &heapArray[parent(i)]);
         i = parent(i);
-    }
+    }*/
+
 }
 
-Order PriorityQueue::popMin()
+Order PriorityQueue::dequeue()
 {
     Order root = heapArray[0];
     heapArray[0] = heapArray[heapSize-1];
     heapSize --;
-    heapify(0);
+    reHeapDown(0, heapSize - 1);
     return root;
 }
 
-void PriorityQueue::heapify(int i)
+void PriorityQueue::reHeapUp(int i, int bottom)
+{
+    int p;
+    if (bottom > i)
+    {
+        p = parent(bottom);
+        if (heapArray[p].getPriority() > heapArray[bottom].getPriority())
+        {
+            swap(&heapArray[p], &heapArray[bottom]);
+            reHeapUp(i, p);
+        }
+    }
+}
+
+void PriorityQueue::reHeapDown(int i, int bottom)
 {
     int leftChild = left(i);
     int rightChild = right(i);
-    int smallest = i;
+    int smallestChild = i;
 
-    if(leftChild < heapSize && heapArray[leftChild].getPriority() < heapArray[i].getPriority())
+    if (leftChild <= bottom)
     {
-        smallest = leftChild;
+        if (leftChild == bottom)
+        {
+            smallestChild = leftChild;
+        }
+        else
+        {
+            if (heapArray[leftChild].getPriority() > heapArray[rightChild].getPriority() /*&& heapArray[leftChild].getOrderNumber() >= heapArray[rightChild].getOrderNumber()*/)
+            {
+                smallestChild = rightChild;
+            }
+            else
+            {
+                smallestChild = leftChild;
+            }
+        }
     }
-    else if (rightChild < heapSize && heapArray[rightChild].getPriority() < heapArray[smallest].getPriority())
+    if (heapArray[i].getPriority() > heapArray[smallestChild].getPriority() /*&& heapArray[i].getOrderNumber() > heapArray[smallestChild].getOrderNumber()*/)
     {
-        smallest = rightChild;
+        swap(&heapArray[i], &heapArray[smallestChild]);
+        reHeapDown(smallestChild, bottom);
     }
 
-    if (smallest != i)
+    /*if(leftChild < heapSize && heapArray[leftChild].getPriority() < heapArray[i].getPriority())
     {
-        swap(&heapArray[i], &heapArray[smallest]);
-        heapify(smallest);
+        smallestChild = leftChild;
     }
+    else if (rightChild < heapSize && heapArray[rightChild].getPriority() < heapArray[smallestChild].getPriority())
+    {
+        smallestChild = rightChild;
+    }
+
+    if (smallestChild != i)
+    {
+        swap(&heapArray[i], &heapArray[smallestChild]);
+        reHeapDown(smallestChild, bottom);
+    }*/
     
 
 }
