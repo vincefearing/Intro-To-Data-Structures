@@ -2,6 +2,7 @@
 #define Order_h
 #include <iostream>
 #include <string>
+#include "Utility.h"
 
 using namespace std;
 
@@ -15,8 +16,9 @@ class Order
     int qtyOrdered;
     float percentMarkUp;
     float costWarehouse;
-    float amountMarkUp;
+    float amountMarkedUp;
     float warehouseProfit;
+    int pricePerUnit;
 
     public:
     Order();
@@ -25,7 +27,7 @@ class Order
     int getOrderNumber() const;
     void setTestData(int orderID, int importance);
     void setPriority(int importance);
-    void setQtyOrdered(int qty);
+    void loadOrder(int orderNum, int importance, int qty, float price, float markUp, float costWare, float profit, int percent);
 };
 
 #endif
