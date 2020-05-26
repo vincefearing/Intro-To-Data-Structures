@@ -138,7 +138,7 @@ void ET::deleteTree(Node * root)
 
 ET::~ET()
 {
-    deleteTree();
+    //deleteTree();
     root = nullptr;
 }
 

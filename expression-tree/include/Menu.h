@@ -14,7 +14,7 @@ class Menu
 {
     private:
     ET expressionTree;
-    queue <string> expressions;
+    queue <string> expressionQueue;
 
     public:
     void mainMenu();

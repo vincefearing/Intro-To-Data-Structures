@@ -19,7 +19,7 @@ void Menu::mainMenu()
 
         switch (userChoice)
         {
-        case 1 : loadExpression();
+        case 1 : if (expressionQueue.empty() == false) {loadExpression();} else {cout << "No more expressions!" << endl;}
             break;
         case 2 : expressionTree.preOrder();
             break;
@@ -47,7 +47,7 @@ void Menu::importExpressions()
     while (!inFile.eof())
     {
         inFile >> temp;
-        expressions.push(temp);
+        expressionQueue.push(temp);
     }
 
     inFile.clear();
@@ -58,10 +58,23 @@ void Menu::loadExpression()
     if (expressionTree.isEmpty() == false)
     {
         expressionTree.deleteTree();
-        expressions.pop();
+        expressionQueue.pop();
     }
-    string temp = expressions.front();
+    if (expressionQueue.empty() == false)
+    {
+        string temp = expressionQueue.front();
+        string postFix = infixToPostfix(temp);
+        expressionTree.createTree(postFix);
+        cout << "\nExpression Loaded: " << temp << endl;
+    }
+    else
+    {
+        cout << "\nNo more expressions!" << endl;
+        return;
+    }
+    
+    /*string temp = expressions.front();
     string postFix = infixToPostfix(temp);
     expressionTree.createTree(postFix);
-    cout << "\nExpression Loaded: " << temp << endl;
+    cout << "\nExpression Loaded: " << temp << endl;()*/
 }
