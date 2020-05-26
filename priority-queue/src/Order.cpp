@@ -32,14 +32,14 @@ int Order::getOrderNumber() const
     return orderNumber;
 }
 
-void Order::loadOrder(int orderNum, int importance, int qty, float price, float markUp, float costWare, float profit, int percent)
+void Order::loadOrder(int orderNum, int importance, int qty, float price, float markUp, float costWare, float profit, int percent, float amountMark)
 {
     orderNumber = orderNum;
     priority = importance;
     qtyOrdered = qty;
     pricePerUnit = price;
     percentMarkUp = percent;
-    amountMarkedUp = costWare * markUp;
+    amountMarkedUp = amountMark;
     qtyShipped = qtyOrdered;
     costWarehouse = costWare;
     warehouseProfit = profit;
@@ -64,10 +64,20 @@ void Order::setTestData(int orderID, int importance)
     priority = importance;
 }
 
-void Order::printDataTable()
+void Order::printDataTable(int choice)
 {
     int a = 20;
     cout << fixed << showpoint;
     cout << setprecision(2);
-    cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << qtyShipped << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << warehouseProfit << endl;
+    if (choice == 2)
+    {
+        cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << qtyShipped << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << warehouseProfit << endl;
+    }
+    else
+    {
+        cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << "0" << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << warehouseProfit << endl;
+    }
+    
+
+    
 }

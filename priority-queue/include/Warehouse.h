@@ -27,9 +27,9 @@ class Warehouse
     Warehouse();
     void addOrder();
     void processOrders();
-    void printOrderTable();
+    void printOrderTable(int choice);
     void printStock();
-    void closeDay();
+    void closeDay(int choice);
 };
 
 #endif

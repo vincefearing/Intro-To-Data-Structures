@@ -28,8 +28,8 @@ class Order
     int getOrderNumber() const;
     void setTestData(int orderID, int importance);
     void setPriority(int importance);
-    void loadOrder(int orderNum, int importance, int qty, float price, float markUp, float costWare, float profit, int percent);
-    void printDataTable();
+    void loadOrder(int orderNum, int importance, int qty, float price, float markUp, float costWare, float profit, int percent, float amountMark);
+    void printDataTable(int choice);
 };
 
 #endif

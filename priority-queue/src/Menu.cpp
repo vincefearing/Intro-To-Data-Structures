@@ -22,11 +22,11 @@ void Menu::mainMenu()
         {
         case 1 : warehouse.addOrder();
             break;
-        case 2 : warehouse.closeDay();
+        case 2 : warehouse.closeDay(userChoice);
             break;
         case 3 : warehouse.printStock();
             break;
-        case 4 : warehouse.printOrderTable();
+        case 4 : warehouse.printOrderTable(userChoice);
             break;    
         case 5 : quit = true;
             break;

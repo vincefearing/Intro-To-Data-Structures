@@ -21,6 +21,7 @@ void Warehouse::addOrder()
     float sales;
     float profit;
     int percentMarkUp;
+    float amountMarkUp;
     Order temp;
 
     cout << "How many widgets would you like to order?" << endl;
@@ -69,10 +70,11 @@ void Warehouse::addOrder()
     orderNumber ++;
     percentMarkUp = markUp * 100;
     cost = pricePerUnit * orderQty;
-    sales = (cost * markUp) + cost;
+    amountMarkUp = cost * markUp;
+    sales = (cost * markUp) + (cost * 0.5) + cost;
     profit = sales - cost;
 
-    temp.loadOrder(orderNumber, priority, orderQty, pricePerUnit, markUp, cost, profit, percentMarkUp);
+    temp.loadOrder(orderNumber, priority, orderQty, pricePerUnit, markUp, cost, profit, percentMarkUp, amountMarkUp);
     totalProcessed ++;
 
     inventory -= orderQty;
@@ -84,7 +86,7 @@ void Warehouse::addOrder()
     pQueue.enqueue(temp);
 }
 
-void Warehouse::printOrderTable()
+void Warehouse::printOrderTable(int choice)
 {
     PriorityQueue tempQ;
     Order tempOrder;
@@ -97,7 +99,7 @@ void Warehouse::printOrderTable()
     while (pQueue.isEmpty() == false)
     {
         tempOrder = pQueue.dequeue();
-        tempOrder.printDataTable();
+        tempOrder.printDataTable(choice);
         tempQ.enqueue(tempOrder);
     }
     while (tempQ.isEmpty() == false)
@@ -112,7 +114,7 @@ void Warehouse::printStock()
     cout << "\nWidgets left in stock: " << inventory;
 }
 
-void Warehouse::closeDay()
+void Warehouse::closeDay(int choice)
 {
     int a = 30;
     cout << fixed << showpoint;
@@ -130,5 +132,5 @@ void Warehouse::closeDay()
 
     cout << "\nORDERS PROCESSED\n" << endl;
 
-    printOrderTable();
+    printOrderTable(choice);
 }
