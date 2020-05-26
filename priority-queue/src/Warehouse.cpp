@@ -95,7 +95,7 @@ void Warehouse::printOrderTable(int choice)
     cout << fixed << showpoint;
     cout << setprecision(2);
     cout << "\n";
-    cout << right << setw(a) << "Order #" << right << setw(a) << "Shipping Option" << right << setw(a) << "Qty Ordered" << right << setw(a) << "Qty Shipped"<< right << setw(a) << "Percent Markup" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Total Markup" << right << setw(a) << "Warehouse Profit" << endl;
+    cout << right << setw(a) << "Order #" << right << setw(a) << "Shipping Option" << right << setw(a) << "Qty Ordered" << right << setw(a) << "Qty Shipped"<< right << setw(a) << "Percent Markup" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Total Markup" << right << setw(a) << "Customer Cost" << right << setw(a) << "Warehouse Profit" << endl;
     while (pQueue.isEmpty() == false)
     {
         tempOrder = pQueue.dequeue();

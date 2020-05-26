@@ -43,6 +43,7 @@ void Order::loadOrder(int orderNum, int importance, int qty, float price, float 
     qtyShipped = qtyOrdered;
     costWarehouse = costWare;
     warehouseProfit = profit;
+    costCustomer = costWarehouse + profit;
     
     if (priority == standard)
     {
@@ -71,7 +72,7 @@ void Order::printDataTable(int choice)
     cout << setprecision(2);
     if (choice == 2)
     {
-        cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << qtyShipped << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << warehouseProfit << endl;
+        cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << qtyShipped << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << costCustomer << right << setw(a) << warehouseProfit << endl;
     }
     else
     {

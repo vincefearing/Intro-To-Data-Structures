@@ -20,6 +20,7 @@ class Order
     float amountMarkedUp;
     float warehouseProfit;
     int pricePerUnit;
+    float costCustomer;
 
     public:
     Order();

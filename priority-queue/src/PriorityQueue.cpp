@@ -111,8 +111,12 @@ void PriorityQueue::reHeapDown(int root, int bottom)
         }
         if (heapArray[root].getPriority() >= heapArray[smallestChild].getPriority())
         {
-            swap(&heapArray[root], &heapArray[smallestChild]);
-            reHeapDown(smallestChild, bottom);
+            if (heapSize > 2)
+            {
+                swap(&heapArray[root], &heapArray[smallestChild]);
+                reHeapDown(smallestChild, bottom);
+            }
+            
         }   
     }
 }
