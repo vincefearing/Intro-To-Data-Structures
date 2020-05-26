@@ -73,6 +73,7 @@ void Warehouse::addOrder()
     profit = sales - cost;
 
     temp.loadOrder(orderNumber, priority, orderQty, pricePerUnit, markUp, cost, profit, percentMarkUp);
+    totalProcessed ++;
 
     inventory -= orderQty;
     totalProcessed += orderQty;
@@ -80,4 +81,54 @@ void Warehouse::addOrder()
     totalCustomerCost += sales;
     totalProfit += profit;
 
+    pQueue.enqueue(temp);
+}
+
+void Warehouse::printOrderTable()
+{
+    PriorityQueue tempQ;
+    Order tempOrder;
+    int a = 20;
+    
+    cout << fixed << showpoint;
+    cout << setprecision(2);
+    cout << "\n";
+    cout << right << setw(a) << "Order #" << right << setw(a) << "Shipping Option" << right << setw(a) << "Qty Ordered" << right << setw(a) << "Qty Shipped"<< right << setw(a) << "Percent Markup" << right << setw(a) << "Warehouse Cost" << right << setw(a) << "Total Markup" << right << setw(a) << "Warehouse Profit" << endl;
+    while (pQueue.isEmpty() == false)
+    {
+        tempOrder = pQueue.dequeue();
+        tempOrder.printDataTable();
+        tempQ.enqueue(tempOrder);
+    }
+    while (tempQ.isEmpty() == false)
+    {
+        tempOrder = tempQ.dequeue();
+        pQueue.enqueue(tempOrder);
+    }
+}
+
+void Warehouse::printStock()
+{
+    cout << "\nWidgets left in stock: " << inventory;
+}
+
+void Warehouse::closeDay()
+{
+    int a = 30;
+    cout << fixed << showpoint;
+    cout << setprecision(2);
+    cout << "\nTOTALS FOR THE DAY\n" << endl;
+    cout << left << setw(a) << "Orders Processed:" << right << setw(a) << totalProcessed << "\n" <<
+    left << setw(a) << "Cost to Warehouse:" << 
+    right << setw(a) << totalWarehouseCost << "\n" <<
+    left << setw(a) << "Cost to Customers" << 
+    right << setw(a) << totalCustomerCost << "\n" <<
+    left << setw(a) << "Profit" <<
+    right << setw(a) << totalProfit << endl;
+
+    cout << left << setw(a) << "Iventory on hand:" << right << setw(a) << inventory << endl;
+
+    cout << "\nORDERS PROCESSED\n" << endl;
+
+    printOrderTable();
 }

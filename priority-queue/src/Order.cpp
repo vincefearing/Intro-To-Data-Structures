@@ -63,3 +63,11 @@ void Order::setTestData(int orderID, int importance)
     orderNumber = orderID;
     priority = importance;
 }
+
+void Order::printDataTable()
+{
+    int a = 20;
+    cout << fixed << showpoint;
+    cout << setprecision(2);
+    cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << qtyShipped << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << warehouseProfit << endl;
+}

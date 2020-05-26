@@ -6,6 +6,7 @@
 #include <Order.h>
 #include "PriorityQueue.h"
 #include "Utility.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -26,6 +27,9 @@ class Warehouse
     Warehouse();
     void addOrder();
     void processOrders();
+    void printOrderTable();
+    void printStock();
+    void closeDay();
 };
 
 #endif

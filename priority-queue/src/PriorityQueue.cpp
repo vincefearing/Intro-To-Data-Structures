@@ -48,12 +48,6 @@ void PriorityQueue::enqueue(Order newOrder)
     heapArray[i] = newOrder;
     reHeapUp(0, heapSize -1);
 
-    /*while (i != 0 && heapArray[parent(i)].getPriority() > heapArray[i].getPriority())
-    {
-        swap(&heapArray[i], &heapArray[parent(i)]);
-        i = parent(i);
-    }*/
-
 }
 
 Order PriorityQueue::dequeue()
@@ -83,7 +77,6 @@ void PriorityQueue::reHeapDown(int root, int bottom)
 {
     int leftChild = left(root);
     int rightChild = right(root);
-    //int smallestChild = i;
     int smallestChild;
     if (leftChild <= bottom)
     {
@@ -116,52 +109,12 @@ void PriorityQueue::reHeapDown(int root, int bottom)
                 }
             }
         }
-        if (heapArray[root].getPriority() >= heapArray[smallestChild].getPriority() /*&& heapArray[i].getOrderNumber() > heapArray[smallestChild].getOrderNumber()*/)
+        if (heapArray[root].getPriority() >= heapArray[smallestChild].getPriority())
         {
             swap(&heapArray[root], &heapArray[smallestChild]);
             reHeapDown(smallestChild, bottom);
         }   
     }
-    /*if (heapArray[leftChild].getPriority() == heapArray[rightChild].getPriority())
-    {
-        if (heapArray[leftChild].getOrderNumber() < heapArray[rightChild].getOrderNumber())
-        {
-            smallestChild = leftChild;
-        }
-        else
-        {
-            smallestChild = rightChild;
-        }
-    }
-    else
-    {
-        if (heapArray[leftChild].getPriority() <= heapArray[rightChild].getPriority())
-        {
-            smallestChild = leftChild;
-        }
-        else if (heapArray[rightChild].getPriority() <= heapArray[leftChild].getPriority())
-        {
-            smallestChild = rightChild;
-        }
-        
-    }*/
-
-    /*if(leftChild < heapSize && heapArray[leftChild].getPriority() < heapArray[i].getPriority())
-    {
-        smallestChild = leftChild;
-    }
-    else if (rightChild < heapSize && heapArray[rightChild].getPriority() < heapArray[smallestChild].getPriority())
-    {
-        smallestChild = rightChild;
-    }
-
-    if (smallestChild != i)
-    {
-        swap(&heapArray[i], &heapArray[smallestChild]);
-        reHeapDown(smallestChild, bottom);
-    }*/
-    
-
 }
 
 void PriorityQueue::printQueue()
@@ -170,4 +123,17 @@ void PriorityQueue::printQueue()
     {
         cout << heapArray[i].getOrderNumber() << endl;
     }
+}
+
+bool PriorityQueue::isEmpty()
+{
+    if (heapSize == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
 }

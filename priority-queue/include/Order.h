@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Utility.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ class Order
     int priority;
     int qtyShipped;
     int qtyOrdered;
-    float percentMarkUp;
+    int percentMarkUp;
     float costWarehouse;
     float amountMarkedUp;
     float warehouseProfit;
@@ -28,6 +29,7 @@ class Order
     void setTestData(int orderID, int importance);
     void setPriority(int importance);
     void loadOrder(int orderNum, int importance, int qty, float price, float markUp, float costWare, float profit, int percent);
+    void printDataTable();
 };
 
 #endif

@@ -26,6 +26,7 @@ class PriorityQueue
     void reHeapUp(int i, int bottom);
     Order dequeue();
     void printQueue();
+    bool isEmpty();
 };
 
 #endif
