@@ -9,7 +9,7 @@ using namespace std;
 enum rushStatus 
 {
     extreme, rush, standard
-}
+};
 
 void validateInput(int userChoice, int menuLength);
 

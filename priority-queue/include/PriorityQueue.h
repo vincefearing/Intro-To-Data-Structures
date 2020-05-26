@@ -22,9 +22,10 @@ class PriorityQueue
     int right(int i);
     int parent(int i);
     void swap(Order *x, Order *y);
-    void reHeapDown(int i, int bottom);
+    void reHeapDown(int root, int bottom);
     void reHeapUp(int i, int bottom);
     Order dequeue();
+    void printQueue();
 };
 
 #endif

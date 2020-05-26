@@ -40,6 +40,7 @@ void PriorityQueue::enqueue(Order newOrder)
     if (heapSize == capacity)
     {
         cout << "Overflow has occured, you've reached the max capacity of queue" << endl;
+        return;
     }
 
     heapSize ++;
@@ -78,12 +79,12 @@ void PriorityQueue::reHeapUp(int i, int bottom)
     }
 }
 
-void PriorityQueue::reHeapDown(int i, int bottom)
+void PriorityQueue::reHeapDown(int root, int bottom)
 {
-    int leftChild = left(i);
-    int rightChild = right(i);
-    int smallestChild = i;
-
+    int leftChild = left(root);
+    int rightChild = right(root);
+    //int smallestChild = i;
+    int smallestChild;
     if (leftChild <= bottom)
     {
         if (leftChild == bottom)
@@ -92,21 +93,58 @@ void PriorityQueue::reHeapDown(int i, int bottom)
         }
         else
         {
-            if (heapArray[leftChild].getPriority() > heapArray[rightChild].getPriority() /*&& heapArray[leftChild].getOrderNumber() >= heapArray[rightChild].getOrderNumber()*/)
+            if (heapArray[leftChild].getPriority() == heapArray[rightChild].getPriority())
             {
-                smallestChild = rightChild;
+                if (heapArray[leftChild].getOrderNumber() < heapArray[rightChild].getOrderNumber())
+                {
+                    smallestChild = leftChild;
+                }
+                else
+                {
+                    smallestChild = rightChild;
+                }
             }
             else
             {
-                smallestChild = leftChild;
+                if (heapArray[leftChild].getPriority() <= heapArray[rightChild].getPriority())
+                {
+                    smallestChild = leftChild;
+                }
+                else if (heapArray[rightChild].getPriority() <= heapArray[leftChild].getPriority())
+                {
+                    smallestChild = rightChild;
+                }
             }
         }
+        if (heapArray[root].getPriority() >= heapArray[smallestChild].getPriority() /*&& heapArray[i].getOrderNumber() > heapArray[smallestChild].getOrderNumber()*/)
+        {
+            swap(&heapArray[root], &heapArray[smallestChild]);
+            reHeapDown(smallestChild, bottom);
+        }   
     }
-    if (heapArray[i].getPriority() > heapArray[smallestChild].getPriority() /*&& heapArray[i].getOrderNumber() > heapArray[smallestChild].getOrderNumber()*/)
+    /*if (heapArray[leftChild].getPriority() == heapArray[rightChild].getPriority())
     {
-        swap(&heapArray[i], &heapArray[smallestChild]);
-        reHeapDown(smallestChild, bottom);
+        if (heapArray[leftChild].getOrderNumber() < heapArray[rightChild].getOrderNumber())
+        {
+            smallestChild = leftChild;
+        }
+        else
+        {
+            smallestChild = rightChild;
+        }
     }
+    else
+    {
+        if (heapArray[leftChild].getPriority() <= heapArray[rightChild].getPriority())
+        {
+            smallestChild = leftChild;
+        }
+        else if (heapArray[rightChild].getPriority() <= heapArray[leftChild].getPriority())
+        {
+            smallestChild = rightChild;
+        }
+        
+    }*/
 
     /*if(leftChild < heapSize && heapArray[leftChild].getPriority() < heapArray[i].getPriority())
     {
@@ -124,4 +162,12 @@ void PriorityQueue::reHeapDown(int i, int bottom)
     }*/
     
 
+}
+
+void PriorityQueue::printQueue()
+{
+    for (int i = 0; i < heapSize; ++i)
+    {
+        cout << heapArray[i].getOrderNumber() << endl;
+    }
 }

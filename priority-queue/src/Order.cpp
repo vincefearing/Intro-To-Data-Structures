@@ -56,6 +56,10 @@ void Order::loadOrder(int orderNum, int importance, int qty, float price, float 
     {
         rushStatus = "extreme";
     }
-    
-    
+}
+
+void Order::setTestData(int orderID, int importance)
+{
+    orderNumber = orderID;
+    priority = importance;
 }
