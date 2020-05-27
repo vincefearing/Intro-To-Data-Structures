@@ -7,5 +7,6 @@ void validateInput(int userChoice, int menuLength)
         cin.clear();
         cin.ignore(100, '\n');
         cout << "\nIncorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
+        return;
     }
 }

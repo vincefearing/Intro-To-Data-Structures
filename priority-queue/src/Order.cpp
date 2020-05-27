@@ -76,7 +76,7 @@ void Order::printDataTable(int choice)
     }
     else
     {
-        cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << "0" << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << warehouseProfit << endl;
+        cout << right << setw(a) << orderNumber << right << setw(a) << rushStatus << right << setw(a) << qtyOrdered << right << setw(a) << "0" << right << setw(a) << percentMarkUp << right << setw(a) << costWarehouse << right << setw(a) << amountMarkedUp << right << setw(a) << costCustomer << right << setw(a) << warehouseProfit << endl;
     }
     
 

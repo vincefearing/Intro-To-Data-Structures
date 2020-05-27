@@ -116,7 +116,6 @@ void PriorityQueue::reHeapDown(int root, int bottom)
                 swap(&heapArray[root], &heapArray[smallestChild]);
                 reHeapDown(smallestChild, bottom);
             }
-            
         }   
     }
 }

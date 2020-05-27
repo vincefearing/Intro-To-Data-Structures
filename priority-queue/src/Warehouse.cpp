@@ -24,6 +24,7 @@ void Warehouse::addOrder()
     float amountMarkUp;
     Order temp;
 
+
     cout << "How many widgets would you like to order?" << endl;
     cin >> orderQty;
     if (!cin || orderQty <= 0)
@@ -34,15 +35,45 @@ void Warehouse::addOrder()
         return;
     }
 
+    if ((inventory - orderQty) < 0)
+    {
+        cout << "\nOrder exceeded widgets on hand.\n"; 
+        cout << "\nCurrent Stock: " << inventory << endl;
+        return;
+    }
+
+    
     int userChoice = 0;
     bool quit = false;
 
-    cout << "Shipping Options:\n\n"
-    << "1. Standard\n"
-    << "2. Rushed\n"
-    << "3. Extreme\n";
-    cin >> userChoice;
-    validateInput(userChoice, 3);
+    while (quit == false)
+    {
+        cout << "Shipping Options:\n\n"
+        << "1. Standard\n"
+        << "2. Rushed\n"
+        << "3. Extreme\n";
+        cin >> userChoice;
+
+        if (userChoice < 0 || userChoice > 3)
+        {
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "\nIncorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
+            quit = false;
+        }
+        else if (!cin)
+        {
+            cin.clear();
+            cin.ignore(100, '\n');
+            cout << "\nIncorrect input. Please choose a single digit corresponding to your desired menu item" << endl;
+            quit = false;        }
+        
+        else
+        {
+            quit = true;
+        }
+        
+    }
 
     switch (userChoice)
     {
@@ -78,7 +109,6 @@ void Warehouse::addOrder()
     totalProcessed ++;
 
     inventory -= orderQty;
-    totalProcessed += orderQty;
     totalWarehouseCost += cost;
     totalCustomerCost += sales;
     totalProfit += profit;
@@ -128,7 +158,7 @@ void Warehouse::closeDay(int choice)
     left << setw(a) << "Profit" <<
     right << setw(a) << totalProfit << endl;
 
-    cout << left << setw(a) << "Iventory on hand:" << right << setw(a) << inventory << endl;
+    cout << left << setw(a) << "Inventory on hand:" << right << setw(a) << inventory << endl;
 
     cout << "\nORDERS PROCESSED\n" << endl;
 
