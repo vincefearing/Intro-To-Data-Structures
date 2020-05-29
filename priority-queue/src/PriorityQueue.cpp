@@ -55,7 +55,7 @@ Order PriorityQueue::dequeue()
     Order root = heapArray[0];
     heapArray[0] = heapArray[heapSize-1];
     heapSize --;
-    reHeapDown(0, heapSize - 1);
+    reHeapDown(0, heapSize);
     return root;
 }
 
@@ -77,7 +77,7 @@ void PriorityQueue::reHeapDown(int root, int bottom)
 {
     int leftChild = left(root);
     int rightChild = right(root);
-    int smallestChild;
+    int smallestChild = leftChild;
     if (leftChild <= bottom)
     {
         if (leftChild == bottom)
@@ -109,14 +109,16 @@ void PriorityQueue::reHeapDown(int root, int bottom)
                 }
             }
         }
-        if (heapArray[root].getPriority() >= heapArray[smallestChild].getPriority())
+        swap(&heapArray[root], &heapArray[smallestChild]);
+        reHeapDown(smallestChild, bottom);
+        /*if (heapArray[root].getPriority() >= heapArray[smallestChild].getPriority())
         {
             if (heapSize > 2)
             {
                 swap(&heapArray[root], &heapArray[smallestChild]);
                 reHeapDown(smallestChild, bottom);
             }
-        }   
+        }*/   
     }
 }
 
